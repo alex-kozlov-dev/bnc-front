@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${t.colors.gray[8]};
     font-family: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
+    background: ${t.colors.gray[8]};
   }
 `
 

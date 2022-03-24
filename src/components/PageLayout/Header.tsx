@@ -5,18 +5,17 @@ import Link from 'next/link'
 import { Logo } from '../Logo'
 import { useEffect, useMemo, useState } from 'react'
 import throttle from 'lodash/throttle'
-import { SocialLinks } from './SocialLinks'
 
 const HeaderLogo = styled(Logo)`
   margin-right: auto;
 `
 
 const Container = styled.header<{ transparent: boolean }>`
-  position: fixed;
+  position: sticky;
+  top: 0;
   z-index: 2;
-  height: 80px;
-  left: 0;
-  right: 0;
+  height: ${t.sizes.header};
+  margin-bottom: -${t.sizes.header};
   padding: 0 ${t.spacing.m};
   display: flex;
   align-items: center;
@@ -56,7 +55,6 @@ const MenuLink = styled.a<{ white: boolean }>`
 type Props = {
   links: {
     title: string;
-    short?: string;
     href: string;
   }[]
 }
@@ -90,14 +88,13 @@ export const Header = ({ links }: Props) => {
   return (
     <Container transparent={scrolledToTop}>
       <HeaderLogo />
-      <SocialLinks black />
       <nav>
         <MenuList>
-          {links.map(({ title, short, href }, i) => (
+          {links.map(({ title, href }, i) => (
             <MenuItem key={i}>
               <Link href={href} passHref>
                 <MenuLink white={scrolledToTop}>
-                  {short || title}
+                  {title}
                 </MenuLink>
               </Link>
             </MenuItem>

@@ -1,6 +1,6 @@
 import { mainMock } from 'mock/main'
 import type { GetStaticProps, NextPage } from 'next'
-import { Home } from 'src/pages/Home/Home'
+import { Home } from 'src/pages/Home'
 
 type StaticProps = {
   splash: {
