@@ -10,6 +10,15 @@ const variants = {
       color: ${t.colors.yellow};
       background: ${t.colors.blue};
     }
+  `,
+  'primary-inverse': css`
+    color: ${t.colors.gray[8]};
+    background: ${t.colors.white};
+
+    &:hover {
+      color: ${t.colors.yellow};
+      background: ${t.colors.blue};
+    }
   `
 }
 

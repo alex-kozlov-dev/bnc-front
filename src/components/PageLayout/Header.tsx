@@ -15,7 +15,7 @@ const Container = styled.header<{ transparent: boolean }>`
   top: 0;
   z-index: 2;
   height: ${t.sizes.header};
-  margin-bottom: -${t.sizes.header};
+  /* margin-bottom: -${t.sizes.header}; */
   padding: 0 ${t.spacing.m};
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@ const Container = styled.header<{ transparent: boolean }>`
 
   transition: background 0.2s, box-shadow 0.2s;
   background: ${({ transparent }) => transparent ? 'transparent' : 'white'};
-  ${({ transparent, theme }) => transparent ? theme.shadow[0] : theme.shadow[1]}
+  ${({ transparent }) => transparent ? t.shadow[0] : t.shadow[1]}
 `
 
 const MenuList = styled.ul`

@@ -1,7 +1,7 @@
 const montserrat = '"Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif'
 const lato = '"Lato", -apple-system, "Helvetica Neue", Arial, sans-serif'
 
-export const theme = {
+const theme = {
   colors: {
     white: '#ffffff',
     gray: {
@@ -22,10 +22,17 @@ export const theme = {
     xs: '8px',
     s: '16px',
     m: '24px',
-    l: '32px'
+    l: '32px',
+    xl: '48px',
+    xxl: '64px'
   },
   sizes: {
-    header: '80px'
+    topHeader: '36px',
+    header: '80px',
+    content: {
+      wide: '1024px',
+      narrow: '728px'
+    }
   },
   shadow: {
     0: 'box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px;',
@@ -35,17 +42,32 @@ export const theme = {
   },
   typography: {
     head: {
+      1.5: {
+        regular: `
+          font-family: ${lato};
+          font-size: 1.5em;
+          line-height: 1;
+          font-weight: 900;
+        `,
+        italic: `
+          font-family: ${lato};
+          font-size: 1.5em;
+          line-height: 1;
+          font-weight: 900;
+          font-style: italic;
+        `
+      },
       3: {
         regular: `
           font-family: ${lato};
           font-size: 3em;
-          line-height: 1.3;
+          line-height: 1;
           font-weight: 900;
         `,
         italic: `
           font-family: ${lato};
           font-size: 3em;
-          line-height: 1.3;
+          line-height: 1;
           font-weight: 900;
           font-style: italic;
         `
@@ -54,13 +76,13 @@ export const theme = {
         regular: `
           font-family: ${lato};
           font-size: 5em;
-          line-height: 1.3;
+          line-height: 1;
           font-weight: 900;
         `,
         italic: `
           font-family: ${lato};
           font-size: 5em;
-          line-height: 1.3;
+          line-height: 1;
           font-weight: 900;
           font-style: italic;
         `
@@ -114,40 +136,10 @@ export const theme = {
     li: `
       list-style: none;
     `,
-    h: `
+    text: `
       margin: 0;
     `
   }
 }
 
-export type Theme = typeof theme
-
-type ThemeGetter<T = {}, O = T> = {
-  [K in keyof O]: O[K] extends (string | number) ? (({ theme }: { theme: T }) => string | number) : ThemeGetter<T, O[K]>
-}
-
-const get = (obj: any, ...path: string[]): string | number => {
-  const [key, ...rest] = path
-
-  return rest.length ? get(obj[key], ...rest) : obj[key]
-}
-
-const createThemeGetter = <T = {}>(theme: T, parentPath: string[] = []): ThemeGetter<T> => {
-  const getter: any = {}
-
-  Object.keys(theme).forEach(key => {
-    const path = [...parentPath, key]
-
-    // @ts-ignore
-    if (typeof theme[key] === 'string' || typeof theme[key] === 'number') {
-      getter[key] = ({ theme }: { theme: T }) => get(theme, ...path)
-    } else {
-      // @ts-ignore
-      getter[key] = createThemeGetter(theme[key], path)
-    }
-  })
-
-  return getter as ThemeGetter<T>
-}
-
-export const t = createThemeGetter(theme)
+export const t = theme

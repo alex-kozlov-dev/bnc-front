@@ -4,8 +4,11 @@ import styled from 'styled-components'
 import { SocialLinks } from './SocialLinks'
 
 const Container = styled.div`
-  padding: ${t.spacing.xs} ${t.spacing.m};
+  position: relative;
+  z-index: 1;
+  padding: 0 ${t.spacing.m};
   background: ${t.colors.gray[8]};
+  height: ${t.sizes.topHeader};
   display: flex;
   justify-content: space-between;
   align-items: center;

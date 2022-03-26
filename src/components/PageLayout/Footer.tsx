@@ -2,42 +2,29 @@ import { lorem } from 'mock/lorem'
 import Link from 'next/link'
 import { t } from 'src/theme'
 import styled from 'styled-components'
+import { Content } from '../Content'
+import { Col, Row } from '../Grid'
 import { Logo } from '../Logo'
-import { ResponsiveContainer } from '../ResponsiveContainer'
+import { Rhytm } from '../Rhytm'
+import { Text } from '../Typography'
 import { SocialLinks } from './SocialLinks'
 
 const Container = styled.footer`
-  padding: ${t.spacing.s} ${t.spacing.m};
   background: ${t.colors.gray[8]};
   color: ${t.colors.white};
 `
 
-const Inner = styled(ResponsiveContainer)`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-`
-
-const Third = styled.div`
-  width: 30%;
-`
-
-const Text = styled.p`
-  margin: ${t.spacing.xs} 0;
-  ${t.typography.text[0.8].regular}
-`
-
-const Copy = styled(Text)`
-  text-align: center;
-`
-
 const Nav = styled.nav`
   flex: 1;
+  height: 100%;
 `
 
 const MenuList = styled.ul`
   ${t.reset.ul}
-  gap: ${t.spacing.xs};
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 const MenuItem = styled.li`
@@ -71,35 +58,39 @@ type Props = {
 export const Footer = ({ links }: Props) => {
   return (
     <Container>
-      <ResponsiveContainer>
-      </ResponsiveContainer>
-      <Inner>
-        <Third>
-          <Logo />
-          <Text>
-            {lorem(15)}
+      <Content>
+        <Rhytm margin={0.8}>
+          <Row justify="space-between">
+            <Col size={4}>
+              <Rhytm margin={0.8}>
+                <Logo />
+                <Text typography={t.typography.text['0.8'].regular}>
+                  {lorem(15)}
+                </Text>
+              </Rhytm>
+            </Col>
+            <Col size={4}>
+              <Nav>
+                <MenuList>
+                  {links.map(({ title, href }, i) => (
+                    <MenuItem key={i}>
+                      <Link href={href} passHref>
+                        <MenuLink>
+                          {title}
+                        </MenuLink>
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </MenuList>
+              </Nav>
+            </Col>
+          </Row>
+          <SocialLinks />
+          <Text typography={t.typography.text['0.8'].regular} align="center">
+            © BNC, 2022
           </Text>
-        </Third>
-        <Third>
-          <Nav>
-            <MenuList>
-              {links.map(({ title, href }, i) => (
-                <MenuItem key={i}>
-                  <Link href={href} passHref>
-                    <MenuLink>
-                      {title}
-                    </MenuLink>
-                  </Link>
-                </MenuItem>
-              ))}
-            </MenuList>
-          </Nav>
-        </Third>
-      </Inner>
-      <SocialLinks />
-      <Copy>
-        © BNC, 2022
-      </Copy>
+        </Rhytm>
+      </Content>
     </Container>
   )
 }

@@ -2,43 +2,26 @@ import { t } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from 'src/components/Button'
 import { Ukraine } from './Ukraine'
+import { Heading, Text } from 'src/components/Typography'
+import { Rhytm } from 'src/components/Rhytm'
+import { Content } from 'src/components/Content'
+import { Col, Row } from 'src/components/Grid'
 
 const Container = styled.div`
   position: relative;
   box-sizing: border-box;
-  background: ${t.colors.yellow};
-  background-size: cover;
   height: 100vh;
   max-height: 728px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px;
   gap: ${t.spacing.l};
+  margin-top: calc(-${t.sizes.topHeader} - ${t.sizes.header});
+  padding-top: calc(${t.sizes.topHeader} + ${t.sizes.header});
 `
 
-const UkraineImage = styled(Ukraine)`
-  flex: 1;
-  max-width: 520px;
-  min-width: 0;
-`
-
-const Inner = styled.div`
-  flex: 1;
-  max-width: 520px;
-  position: relative;
-  z-index: 1;
-`
-
-const Title = styled.h1`
-  ${t.reset.h}
-  ${t.typography.head[3].italic}
-  line-height: 1em;
-  margin-bottom: 0.5em;
-`
-
-const Text = styled.p`
-  ${t.typography.text[1].regular}
+const Title = styled(Heading)`
+  line-height: 1;
 `
 
 type Props = {
@@ -48,22 +31,27 @@ type Props = {
 
 export const Splash = ({ title, text }: Props) => {
   return (
-    <>
-      {/* <Clip /> */}
-      <Container>
-        <Inner>
-          <Title>
-            {title}
-          </Title>
-          <Text>
-            {text}
-          </Text>
-          <Button>
-            Donate now
-          </Button>
-        </Inner>
-        <UkraineImage />
-      </Container>
-    </>
+    <Container>
+      <Content size='wide'>
+        <Row align='center'>
+          <Col size={6}>
+            <Rhytm>
+              <Title>
+                {title}
+              </Title>
+              <Text>
+                {text}
+              </Text>
+              <Button>
+                Donate now
+              </Button>
+            </Rhytm>
+          </Col>
+          <Col size={6}>
+            <Ukraine />
+          </Col>
+        </Row>
+      </Content>
+    </Container>
   )
 }

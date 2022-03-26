@@ -1,7 +1,9 @@
 import type { AppProps } from 'next/app'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import { t, theme } from 'src/theme'
+import { createGlobalStyle } from 'styled-components'
+import { t } from 'src/theme'
 import { PageLayout } from 'src/components/PageLayout'
+
+import '@fortawesome/fontawesome-free/css/all.css'
 
 const GlobalStyles = createGlobalStyle`
   html, body {
@@ -16,12 +18,12 @@ const GlobalStyles = createGlobalStyle`
 
 function MyApp ({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <GlobalStyles />
       <PageLayout>
         <Component {...pageProps} />
       </PageLayout>
-    </ThemeProvider>
+    </>
   )
 }
 

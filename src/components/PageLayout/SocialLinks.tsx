@@ -1,8 +1,9 @@
-import { faFacebook, faInstagram, faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faFacebook, faInstagram, faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { t } from 'src/theme'
 import styled from 'styled-components'
+import { Icon } from '../Icon'
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const Container = styled.div`
 `
 
 const LinkAnchor = styled.a<{ black?: boolean }>`
-  color: ${({ black, theme }) => black ? theme.colors.gray[8] : theme.colors.white};
+  color: ${({ black }) => black ? t.colors.gray[8] : t.colors.white};
   transition: color 0.2s, transform 0.2s;
   &:hover {
     color: ${t.colors.blue};
@@ -32,22 +33,22 @@ export const SocialLinks = ({ black }: Props) => {
     <Container>
       <Link href="#" passHref>
         <LinkAnchor black={black} >
-          <FontAwesomeIcon icon={faFacebook} size="lg" />
+          <Icon prefix="fab" icon="fa-facebook" />
         </LinkAnchor>
       </Link>
       <Link href="#" passHref>
         <LinkAnchor black={black} >
-          <FontAwesomeIcon icon={faInstagram} size="lg" />
+          <Icon prefix="fab" icon="fa-instagram" />
         </LinkAnchor>
       </Link>
       <Link href="#" passHref>
         <LinkAnchor black={black} >
-          <FontAwesomeIcon icon={faTwitter} size="lg" />
+          <Icon prefix="fab" icon="fa-twitter" />
         </LinkAnchor>
       </Link>
       <Link href="#" passHref>
         <LinkAnchor black={black} >
-          <FontAwesomeIcon icon={faTelegram} size="lg" />
+          <Icon prefix="fab" icon="fa-telegram" />
         </LinkAnchor>
       </Link>
     </Container>
