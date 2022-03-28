@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
+import { LocaleSwitcher } from '../LocaleSwitcher'
 import { SocialLinks } from './SocialLinks'
 
 const Container = styled.div`
@@ -14,19 +14,7 @@ const Container = styled.div`
   align-items: center;
 `
 
-const MenuList = styled.ul`
-  ${theme.reset.ul}
-  display: flex;
-  gap: ${theme.spacing.xs};
-`
-
-const MenuItem = styled.li`
-  ${theme.reset.li}
-`
-
-const MenuLink = styled.a`
-  ${theme.reset.link}
-  position: relative;
+const LocaleLink = styled(LocaleSwitcher)`
   padding: ${theme.spacing.xs};
   color: ${theme.colors.white};
   transition: color 0.2s, transform 0.2s;
@@ -43,22 +31,7 @@ export const TopHeader = () => {
   return (
     <Container>
       <SocialLinks />
-      <MenuList>
-        {/* <MenuItem>
-          <Link href="#" passHref>
-            <MenuLink>
-              English
-            </MenuLink>
-          </Link>
-        </MenuItem> */}
-        <MenuItem>
-          <Link href="#" passHref>
-            <MenuLink>
-              Українська
-            </MenuLink>
-          </Link>
-        </MenuItem>
-      </MenuList>
+      <LocaleLink />
     </Container>
   )
 }

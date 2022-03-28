@@ -1,5 +1,5 @@
-import { lorem } from 'mock/lorem'
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Content } from '../Content'
@@ -49,13 +49,16 @@ const MenuLink = styled.a`
 `
 
 type Props = {
+  text: string;
   links: {
     title: string;
     href: string;
   }[]
 }
 
-export const Footer = ({ links }: Props) => {
+export const Footer = ({ links, text }: Props) => {
+  const { t } = useTranslation()
+
   return (
     <Container>
       <Content>
@@ -65,7 +68,7 @@ export const Footer = ({ links }: Props) => {
               <Rhytm margin={0.8}>
                 <Logo />
                 <Text typography={theme.typography.text['0.8'].regular}>
-                  {lorem(15)}
+                  {text}
                 </Text>
               </Rhytm>
             </Col>
@@ -87,7 +90,7 @@ export const Footer = ({ links }: Props) => {
           </Row>
           <SocialLinks />
           <Text typography={theme.typography.text['0.8'].regular} align="center">
-            © BNC, 2022
+            {t('© BNC, 2022')}
           </Text>
         </Rhytm>
       </Content>

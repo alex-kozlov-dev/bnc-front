@@ -6,6 +6,7 @@ import { Heading, Text } from 'src/components/Typography'
 import { Rhytm } from 'src/components/Rhytm'
 import { Content } from 'src/components/Content'
 import { Col, Row } from 'src/components/Grid'
+import { useTranslation } from 'react-i18next'
 
 const Container = styled.div`
   position: relative;
@@ -30,6 +31,8 @@ type Props = {
 }
 
 export const Splash = ({ title, text }: Props) => {
+  const { t } = useTranslation()
+
   return (
     <Container>
       <Content size='wide'>
@@ -43,7 +46,7 @@ export const Splash = ({ title, text }: Props) => {
                 {text}
               </Text>
               <Button>
-                Donate now
+                {t('Donate now')}
               </Button>
             </Rhytm>
           </Col>

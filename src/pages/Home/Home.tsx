@@ -1,4 +1,3 @@
-import { lorem } from 'mock/lorem'
 import { DonateCTASection } from 'src/components/sections/DonateCTASection'
 import { IconTextListSection } from 'src/components/sections/IconTextListSection'
 import { NumberedTextListSection } from 'src/components/sections/NumberedTextListSection'
@@ -8,95 +7,61 @@ import { TextImageSection } from 'src/components/sections/TextImageSection'
 import { TextSection } from 'src/components/sections/TextSection'
 import { Splash } from './Splash'
 
-type Props = {
+export type HomeProps = {
   splash: {
     title: string;
     text: string;
+  };
+  iconTextList: {
+    items: {
+      icon: string;
+      title: string;
+      text: string;
+    }[];
+  };
+  textImage: {
+    title: string;
+    text: string;
+    imageUrl: string;
+    imageAlt: string;
+  };
+  text: {
+    title: string;
+    text: string;
+  };
+  numberedList: {
+    items: {
+      text: string;
+    }[];
+  };
+  donateCta: {
+    cta: string;
+  };
+  partners: {
+    items: {
+      imageUrl: string;
+      alt: string;
+    }[];
+  };
+  qa: {
+    items: {
+      question: string;
+      answer: string;
+    }[];
   }
 }
 
-const partners = [
-  {
-    imageUrl: 'https://savelife.in.ua/templates/site/img/kiis.png',
-    alt: 'kiis'
-  },
-  {
-    imageUrl: 'https://savelife.in.ua/templates/site/img/agama.png',
-    alt: 'agama'
-  },
-  {
-    imageUrl: 'https://savelife.in.ua/templates/site/img/bakertilly.png',
-    alt: 'bakertilly'
-  },
-  {
-    imageUrl: 'https://savelife.in.ua/templates/site/img/kiis.png',
-    alt: 'kiis'
-  },
-  {
-    imageUrl: 'https://savelife.in.ua/templates/site/img/agama.png',
-    alt: 'agama'
-  },
-  {
-    imageUrl: 'https://savelife.in.ua/templates/site/img/bakertilly.png',
-    alt: 'bakertilly'
-  }
-]
-
-const qa = [
-  {
-    question: `${lorem(4)}?`,
-    answer: lorem()
-  },
-  {
-    question: `${lorem(4)}?`,
-    answer: lorem()
-  },
-  {
-    question: `${lorem(4)}?`,
-    answer: lorem()
-  },
-  {
-    question: `${lorem(4)}?`,
-    answer: lorem()
-  }
-]
-
-const numberedList = [
-  { text: lorem(20) },
-  { text: lorem(20) },
-  { text: lorem(20) },
-  { text: lorem(20) }
-]
-
-const iconList = [
-  {
-    icon: 'fa-biohazard',
-    title: lorem(4),
-    text: lorem(20)
-  },
-  {
-    icon: 'fa-broadcast-tower',
-    title: lorem(5),
-    text: lorem(20)
-  },
-  {
-    icon: 'fa-bus',
-    title: lorem(4),
-    text: lorem(20)
-  }
-] as any
-
-export const Home = ({ splash }: Props) => {
+export const Home = ({ splash, iconTextList, textImage, text, numberedList, donateCta, partners, qa }: HomeProps) => {
   return (
     <>
       <Splash {...splash} />
-      <IconTextListSection items={iconList} variant="gray" />
-      <TextImageSection title={lorem(3)} text={lorem()} imageUrl="https://www.fillmurray.com/1024/768" imageAlt={lorem(2)}/>
-      <NumberedTextListSection items={numberedList} variant="gray" />
-      <DonateCTASection title={lorem(4)}/>
-      <TextSection title={lorem(3)} text={lorem()} variant="gray" />
-      <PartnersSection partners={partners} />
-      <QASection items={qa} variant="gray" />
+      <IconTextListSection {...iconTextList} variant="gray" />
+      <TextImageSection {...textImage} />
+      <NumberedTextListSection {...numberedList} variant="gray" />
+      <DonateCTASection title={donateCta.cta}/>
+      <TextSection {...text} variant="gray" />
+      <PartnersSection partners={partners.items} />
+      <QASection {...qa} variant="gray" />
     </>
   )
 }

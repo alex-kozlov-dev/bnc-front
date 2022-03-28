@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Logo } from '../Logo'
 import { useEffect, useMemo, useState } from 'react'
 import throttle from 'lodash/throttle'
+import { useTranslation } from 'react-i18next'
 
 const HeaderLogo = styled(Logo)`
   margin-right: auto;
@@ -13,7 +14,7 @@ const HeaderLogo = styled(Logo)`
 const Container = styled.header<{ transparent: boolean }>`
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 666;
   height: ${theme.sizes.header};
   /* margin-bottom: -${theme.sizes.header}; */
   padding: 0 ${theme.spacing.m};
@@ -84,6 +85,7 @@ const useScrolledToTop = () => {
 
 export const Header = ({ links }: Props) => {
   const scrolledToTop = useScrolledToTop()
+  const { t } = useTranslation()
 
   return (
     <Container transparent={scrolledToTop}>
@@ -102,7 +104,7 @@ export const Header = ({ links }: Props) => {
         </MenuList>
       </nav>
       <Button>
-        Donate now
+        {t('Donate now')}
       </Button>
     </Container>
   )

@@ -1,35 +1,13 @@
-import { lorem } from 'mock/lorem'
+import { mock } from 'mock/mock'
+import { getSharedData, GetStaticProps } from 'src/nextHelpers'
 import { ProjectsList } from 'src/pages/ProjectsList'
 import { ProjectListProps } from 'src/pages/ProjectsList/ProjectsList'
-import { GetStaticProps } from 'src/types'
 
-export const getStaticProps: GetStaticProps<ProjectListProps> = () => {
-  return {
-    props: {
-      items: [
-        {
-          title: lorem(4),
-          imageUrl: 'https://www.fillmurray.com/500/500',
-          slug: 'ololo'
-        },
-        {
-          title: lorem(4),
-          imageUrl: 'https://www.fillmurray.com/500/501',
-          slug: 'ololo'
-        },
-        {
-          title: lorem(4),
-          imageUrl: 'https://www.fillmurray.com/500/502',
-          slug: 'ololo'
-        },
-        {
-          title: lorem(4),
-          imageUrl: 'https://www.fillmurray.com/500/502',
-          slug: 'ololo'
-        }
-      ]
-    }
+export const getStaticProps: GetStaticProps<ProjectListProps> = async ({ locale }) => ({
+  props: {
+    ...(await getSharedData(locale)),
+    items: mock[locale].projects.items
   }
-}
+})
 
 export default ProjectsList

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
 import { Section } from 'src/components/Section'
 import { Text } from 'src/components/Typography'
 import { theme } from 'src/theme'
@@ -45,8 +46,10 @@ export type ProjectListProps = {
 }
 
 export const ProjectsList = ({ items }: ProjectListProps) => {
+  const { t } = useTranslation()
+
   return (
-    <Section title="Projects" size="full-width">
+    <Section title={t('Projects')} size="full-width">
       <Container>
         {items.map(({ imageUrl, title, slug }, i) => (
           <Link href={`/projects/${slug}`} passHref key={i}>

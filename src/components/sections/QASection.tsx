@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Icon } from '../Icon'
@@ -64,8 +65,10 @@ type Props = SectionProps & {
 }
 
 export const QASection = ({ items, ...props }: Props) => {
+  const { t } = useTranslation()
+
   return (
-    <Section size="narrow" title="Q&A" {...props}>
+    <Section size="narrow" title={t('Q&A')} {...props}>
       <Rhytm>
         {items.map((props, i) => <QAItem key={i} {...props} />)}
       </Rhytm>

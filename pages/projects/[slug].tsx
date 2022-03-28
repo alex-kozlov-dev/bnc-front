@@ -1,29 +1,24 @@
-import { lorem } from 'mock/lorem'
+import { mock } from 'mock/mock'
 import { GetStaticPaths } from 'next'
+import { getSharedData, GetStaticProps, getTranslatedPaths } from 'src/nextHelpers'
 import { Project, ProjectProps } from 'src/pages/Project'
-import { GetStaticProps } from 'src/types'
 
 type Params = {
   slug: string;
 }
 
-export const getStaticProps: GetStaticProps<ProjectProps> = () => {
-  return {
-    props: {
-      imageUrl: 'https://www.fillmurray.com/1400/302',
-      title: lorem(3),
-      text: lorem()
-    }
+export const getStaticProps: GetStaticProps<ProjectProps, Params> = async ({ locale }) => ({
+  props: {
+    ...(await getSharedData(locale)),
+    ...mock[locale].project
   }
-}
+})
 
-export const getStaticPaths: GetStaticPaths<Params> = () => {
-  return {
-    paths: [
-      { params: { slug: 'ololo' } }
-    ],
-    fallback: false
-  }
-}
+export const getStaticPaths: GetStaticPaths<Params> = () => ({
+  paths: getTranslatedPaths([
+    { params: { slug: 'ololo' } }
+  ]),
+  fallback: false
+})
 
 export default Project

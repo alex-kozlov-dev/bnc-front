@@ -4,6 +4,7 @@ import { theme } from 'src/theme'
 import { PageLayout } from 'src/components/PageLayout'
 
 import '@fortawesome/fontawesome-free/css/all.css'
+import { appWithTranslation } from 'next-i18next'
 
 const GlobalStyles = createGlobalStyle`
   html, body {
@@ -20,11 +21,11 @@ function MyApp ({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyles />
-      <PageLayout>
+      <PageLayout {...pageProps.meta} >
         <Component {...pageProps} />
       </PageLayout>
     </>
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

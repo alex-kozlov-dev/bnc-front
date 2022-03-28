@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from '../Button'
@@ -16,6 +17,8 @@ type Props = SectionProps & {
 }
 
 export const DonateCTASection = ({ title, ...props }: Props) => {
+  const { t } = useTranslation()
+
   return (
     <Section variant="black" size="wide" {...props}>
       <Container>
@@ -23,7 +26,7 @@ export const DonateCTASection = ({ title, ...props }: Props) => {
           {title}
         </Heading>
         <Button variant="primary-inverse">
-          Donate now
+          {t('Donate now')}
         </Button>
       </Container>
     </Section>

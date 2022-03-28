@@ -1,5 +1,8 @@
 type GetStaticPropsCtx<Query = {}> = {
   params: Query
+  locale: string;
 }
 
-export type GetStaticProps<Props = {}, Query = {}> = (ctx: GetStaticPropsCtx<Query>) => { props?: Props; notFound?: true }
+type MaybeAsync<Fn extends (...aegs: any) => any> = Fn | ((...args: Parameters<Fn>) => Promise<ReturnType<Fn>>)
+
+export type GetStaticProps<Props = {}, Query = {}> = MaybeAsync<(ctx: GetStaticPropsCtx<Query>) => { props?: Props; notFound?: true }>

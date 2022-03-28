@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
+    "extract-translations": "i18next --config i18next-parser.config.js",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "i18next-parser": "^6.0.1",
     "lodash": "^4.17.21",
     "next": "12.1.0",
     "next-i18next": "^10.5.0",

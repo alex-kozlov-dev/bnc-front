@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { Footer } from './Footer'
 import { Header } from './Header'
@@ -15,14 +16,26 @@ const Main = styled.main`
   flex: 1;
 `
 
-const links = [
-  { title: 'Home', href: '/' },
-  { title: 'Projects', href: '/projects' },
-  { title: 'Documents', href: '#' },
-  { title: 'Contacts', href: '#' }
-]
+const useNavigationLinks = () => {
+  const { t } = useTranslation()
 
-export const PageLayout: FC = ({ children }) => {
+  return [
+    { title: t('Home'), href: '/' },
+    { title: t('Projects'), href: '/projects' },
+    { title: t('Documents'), href: '#' },
+    { title: t('Contacts'), href: '#' }
+  ]
+}
+
+export type MetaProps = {
+  footer: {
+    text: string;
+  }
+}
+
+export const PageLayout: FC<MetaProps> = ({ children, footer }) => {
+  const links = useNavigationLinks()
+
   return (
     <Container>
       <TopHeader />
@@ -30,7 +43,7 @@ export const PageLayout: FC = ({ children }) => {
       <Main>
         {children}
       </Main>
-      <Footer links={links} />
+      <Footer links={links} text={footer.text} />
     </Container>
   )
 }
