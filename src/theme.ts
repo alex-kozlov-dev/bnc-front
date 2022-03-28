@@ -1,5 +1,5 @@
-const montserrat = '"Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif'
-const lato = '"Lato", -apple-system, "Helvetica Neue", Arial, sans-serif'
+const raleway = '"Raleway", -apple-system, "Helvetica Neue", Arial, sans-serif'
+const montserat = '"Montserat", -apple-system, "Helvetica Neue", Arial, sans-serif'
 
 export const theme = {
   colors: {
@@ -49,13 +49,13 @@ export const theme = {
     head: {
       1.5: {
         regular: `
-          font-family: ${lato};
+          font-family: ${montserat};
           font-size: 1.5em;
           line-height: 1;
           font-weight: 900;
         `,
         italic: `
-          font-family: ${lato};
+          font-family: ${montserat};
           font-size: 1.5em;
           line-height: 1;
           font-weight: 900;
@@ -64,13 +64,13 @@ export const theme = {
       },
       3: {
         regular: `
-          font-family: ${lato};
+          font-family: ${montserat};
           font-size: 3em;
           line-height: 1;
           font-weight: 900;
         `,
         italic: `
-          font-family: ${lato};
+          font-family: ${montserat};
           font-size: 3em;
           line-height: 1;
           font-weight: 900;
@@ -79,13 +79,13 @@ export const theme = {
       },
       5: {
         regular: `
-          font-family: ${lato};
+          font-family: ${montserat};
           font-size: 5em;
           line-height: 1;
           font-weight: 900;
         `,
         italic: `
-          font-family: ${lato};
+          font-family: ${montserat};
           font-size: 5em;
           line-height: 1;
           font-weight: 900;
@@ -96,27 +96,27 @@ export const theme = {
     text: {
       0.8: {
         regular: `
-          font-family: ${montserrat};
+          font-family: ${raleway};
           font-size: 0.8em;
           line-height: 1.3;
         `
       },
       1: {
         regular: `
-          font-family: ${montserrat};
+          font-family: ${raleway};
           font-size: 1em;
-          line-height: 1.8;
+          line-height: 1.6;
         `,
         bold: `
-          font-family: ${montserrat};
+          font-family: ${raleway};
           font-size: 1em;
-          line-height: 1.8;
+          line-height: 1.6;
           font-weight: bold;
         `,
         italic: `
-          font-family: ${montserrat};
+          font-family: ${raleway};
           font-size: 1em;
-          line-height: 1.8;
+          line-height: 1.6;
           font-style: italic;
         `
       }
