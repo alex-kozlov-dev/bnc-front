@@ -12,6 +12,7 @@ const ItemContainer = styled.div`
   background: ${t.colors.white};
   cursor: pointer;
   transition: box-shadow 0.2s;
+  border-radius: ${t.borderRadius.m};
   ${t.shadow[0]}
   &:hover {
     ${t.shadow[1]}

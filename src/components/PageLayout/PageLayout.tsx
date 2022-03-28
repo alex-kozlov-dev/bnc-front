@@ -16,8 +16,8 @@ const Main = styled.main`
 `
 
 const links = [
-  { title: 'Home', href: '#' },
-  { title: 'Projects', href: '#' },
+  { title: 'Home', href: '/' },
+  { title: 'Projects', href: '/projects' },
   { title: 'Documents', href: '#' },
   { title: 'Contacts', href: '#' }
 ]

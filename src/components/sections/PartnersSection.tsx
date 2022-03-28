@@ -20,6 +20,7 @@ const Item = styled.img`
   object-fit: contain;
   border: 1px solid ${t.colors.gray[3]};
   background-color: ${t.colors.white};
+  border-radius: ${t.borderRadius.s};
   
   transition: filter 0.2s, box-shadow 0.2s;
   ${t.shadow[0]}

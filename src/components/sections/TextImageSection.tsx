@@ -1,3 +1,4 @@
+import { t } from 'src/theme'
 import styled from 'styled-components'
 import { Col, Row } from '../Grid'
 import { Rhytm } from '../Rhytm'
@@ -7,6 +8,7 @@ import { Heading, Text } from '../Typography'
 const Image = styled.img`
   display: block;
   width: 100%;
+  border-radius: ${t.borderRadius.s};
 `
 
 type Props = SectionProps & {

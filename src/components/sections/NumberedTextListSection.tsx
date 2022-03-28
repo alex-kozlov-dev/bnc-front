@@ -8,13 +8,14 @@ const Container = styled.div`
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: ${t.spacing.m};
-  background: white;
 `
 
 const Item = styled.div<{ number: number }>`
   position: relative;
   border: 1px solid ${t.colors.gray[3]};
   padding: ${t.spacing.l};
+  border-radius: ${t.borderRadius.m};
+  background: white;
 
   &:before {
     display: block;

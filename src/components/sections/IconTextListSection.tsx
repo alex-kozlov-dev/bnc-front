@@ -20,6 +20,7 @@ const Item = styled.div`
   padding: ${t.spacing.l};
   margin-top: 32px;
   background: white;
+  border-radius: ${t.borderRadius.m};
 `
 
 const IconContainer = styled.div`

@@ -34,6 +34,11 @@ const theme = {
       narrow: '728px'
     }
   },
+  borderRadius: {
+    s: '4px',
+    m: '8px',
+    l: '16px'
+  },
   shadow: {
     0: 'box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px;',
     1: 'box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px;',
