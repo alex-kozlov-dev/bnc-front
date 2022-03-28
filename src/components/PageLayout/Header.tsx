@@ -1,4 +1,4 @@
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from 'src/components/Button'
 import Link from 'next/link'
@@ -14,37 +14,37 @@ const Container = styled.header<{ transparent: boolean }>`
   position: sticky;
   top: 0;
   z-index: 2;
-  height: ${t.sizes.header};
-  /* margin-bottom: -${t.sizes.header}; */
-  padding: 0 ${t.spacing.m};
+  height: ${theme.sizes.header};
+  /* margin-bottom: -${theme.sizes.header}; */
+  padding: 0 ${theme.spacing.m};
   display: flex;
   align-items: center;
-  gap: ${t.spacing.s};
+  gap: ${theme.spacing.s};
 
   transition: background 0.2s, box-shadow 0.2s;
   background: ${({ transparent }) => transparent ? 'transparent' : 'white'};
-  ${({ transparent }) => transparent ? t.shadow[0] : t.shadow[1]}
+  ${({ transparent }) => transparent ? theme.shadow[0] : theme.shadow[1]}
 `
 
 const MenuList = styled.ul`
-  ${t.reset.ul}
+  ${theme.reset.ul}
   display: flex;
-  gap: ${t.spacing.xs};
+  gap: ${theme.spacing.xs};
 `
 
 const MenuItem = styled.li`
-  ${t.reset.li}
+  ${theme.reset.li}
 `
 
 const MenuLink = styled.a<{ white: boolean }>`
-  ${t.reset.link}
-  ${t.typography.text[1].bold}
+  ${theme.reset.link}
+  ${theme.typography.text[1].bold}
   position: relative;
-  padding: ${t.spacing.xs};
+  padding: ${theme.spacing.xs};
 
   transition: color 0.2s, transform 0.2s;
   &:hover {
-    color: ${t.colors.blue};
+    color: ${theme.colors.blue};
   }
 
   &:active {

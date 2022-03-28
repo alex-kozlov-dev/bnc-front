@@ -1,6 +1,6 @@
 import { lorem } from 'mock/lorem'
 import Link from 'next/link'
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Content } from '../Content'
 import { Col, Row } from '../Grid'
@@ -10,8 +10,8 @@ import { Text } from '../Typography'
 import { SocialLinks } from './SocialLinks'
 
 const Container = styled.footer`
-  background: ${t.colors.gray[8]};
-  color: ${t.colors.white};
+  background: ${theme.colors.gray[8]};
+  color: ${theme.colors.white};
 `
 
 const Nav = styled.nav`
@@ -20,7 +20,7 @@ const Nav = styled.nav`
 `
 
 const MenuList = styled.ul`
-  ${t.reset.ul}
+  ${theme.reset.ul}
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -28,19 +28,19 @@ const MenuList = styled.ul`
 `
 
 const MenuItem = styled.li`
-  ${t.reset.li}
+  ${theme.reset.li}
   text-align: right;
 `
 
 const MenuLink = styled.a`
-  ${t.reset.link}
+  ${theme.reset.link}
   display: inline-block;
   position: relative;
-  padding: 0 ${t.spacing.xs};
+  padding: 0 ${theme.spacing.xs};
 
   transition: color 0.2s, transform 0.2s;
   &:hover {
-    color: ${t.colors.blue};
+    color: ${theme.colors.blue};
   }
 
   &:active {
@@ -64,7 +64,7 @@ export const Footer = ({ links }: Props) => {
             <Col size={4}>
               <Rhytm margin={0.8}>
                 <Logo />
-                <Text typography={t.typography.text['0.8'].regular}>
+                <Text typography={theme.typography.text['0.8'].regular}>
                   {lorem(15)}
                 </Text>
               </Rhytm>
@@ -86,7 +86,7 @@ export const Footer = ({ links }: Props) => {
             </Col>
           </Row>
           <SocialLinks />
-          <Text typography={t.typography.text['0.8'].regular} align="center">
+          <Text typography={theme.typography.text['0.8'].regular} align="center">
             © BNC, 2022
           </Text>
         </Rhytm>

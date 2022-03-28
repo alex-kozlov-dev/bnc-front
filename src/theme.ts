@@ -1,7 +1,7 @@
 const montserrat = '"Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif'
 const lato = '"Lato", -apple-system, "Helvetica Neue", Arial, sans-serif'
 
-const theme = {
+export const theme = {
   colors: {
     white: '#ffffff',
     gray: {
@@ -146,5 +146,3 @@ const theme = {
     `
   }
 }
-
-export const t = theme

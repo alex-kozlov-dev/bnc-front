@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Icon } from '../Icon'
 import { Rhytm } from '../Rhytm'
@@ -7,15 +7,15 @@ import { Section, SectionProps } from '../Section'
 import { Text } from '../Typography'
 
 const ItemContainer = styled.div`
-  padding: ${t.spacing.l};
-  border: 1px solid ${t.colors.gray[3]};
-  background: ${t.colors.white};
+  padding: ${theme.spacing.l};
+  border: 1px solid ${theme.colors.gray[3]};
+  background: ${theme.colors.white};
   cursor: pointer;
   transition: box-shadow 0.2s;
-  border-radius: ${t.borderRadius.m};
-  ${t.shadow[0]}
+  border-radius: ${theme.borderRadius.m};
+  ${theme.shadow[0]}
   &:hover {
-    ${t.shadow[1]}
+    ${theme.shadow[1]}
   }
 `
 
@@ -45,7 +45,7 @@ const QAItem = ({ question, answer }: Item) => {
   return (
     <ItemContainer onClick={() => setOpen(!open)}>
       <Question>
-        <Text typography={t.typography.head['1.5'].regular}>
+        <Text typography={theme.typography.head['1.5'].regular}>
           {question}
         </Text>
         <Icon icon="fa-chevron-right" rotate={open ? 90 : 0} />

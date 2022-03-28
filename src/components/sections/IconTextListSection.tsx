@@ -1,6 +1,6 @@
 // import { IconName } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Icon } from '../Icon'
 import { Rhytm } from '../Rhytm'
@@ -11,16 +11,16 @@ const Container = styled.div`
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: ${t.spacing.m};
+  gap: ${theme.spacing.m};
 `
 
 const Item = styled.div`
   position: relative;
-  border: 1px solid ${t.colors.gray[3]};
-  padding: ${t.spacing.l};
+  border: 1px solid ${theme.colors.gray[3]};
+  padding: ${theme.spacing.l};
   margin-top: 32px;
   background: white;
-  border-radius: ${t.borderRadius.m};
+  border-radius: ${theme.borderRadius.m};
 `
 
 const IconContainer = styled.div`
@@ -32,11 +32,11 @@ const IconContainer = styled.div`
   transform: translate(-50%, -50%);
   background: white;
   border-radius: 100%;
-  border: 1px solid ${t.colors.gray[3]};
+  border: 1px solid ${theme.colors.gray[3]};
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${t.colors.gray[5]};
+  color: ${theme.colors.gray[5]};
 `
 
 type Props = SectionProps & {
@@ -58,7 +58,7 @@ export const IconTextListSection = ({ items, ...props }: Props) => {
               <IconContainer>
                 <Icon prefix='fas' icon={icon} size="2x" />
               </IconContainer>
-              <Heading typography={t.typography.head['1.5'].regular} align="center">
+              <Heading typography={theme.typography.head['1.5'].regular} align="center">
                 {title}
               </Heading>
               <Text>

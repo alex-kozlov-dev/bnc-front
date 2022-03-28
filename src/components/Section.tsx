@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Content, ContentSize } from './Content'
 import { Heading } from './Typography'
@@ -7,9 +7,9 @@ import { Heading } from './Typography'
 type Variant = 'white' | 'gray' | 'black';
 
 const Container = styled.section<{ variant: Variant }>`
-  background-color: ${({ variant }) => variant === 'black' ? t.colors.gray[8] : variant === 'gray' ? t.colors.gray[0] : 'unset'};
-  color: ${({ variant }) => variant === 'black' ? t.colors.white : 'unset'};
-  padding: ${t.spacing.m} 0;
+  background-color: ${({ variant }) => variant === 'black' ? theme.colors.gray[8] : variant === 'gray' ? theme.colors.gray[0] : 'unset'};
+  color: ${({ variant }) => variant === 'black' ? theme.colors.white : 'unset'};
+  padding: ${theme.spacing.m} 0;
 `
 
 const Title = styled(Heading)`

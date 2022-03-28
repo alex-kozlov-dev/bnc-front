@@ -1,4 +1,4 @@
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 
 export const Col = styled.div<{ size?: number }>`
@@ -15,7 +15,7 @@ export const Col = styled.div<{ size?: number }>`
 type RowProps = {
   align?: 'start' | 'end' | 'center';
   justify?: 'start' | 'end' | 'center' | 'space-between' | 'space-around';
-  gap?: keyof typeof t.spacing;
+  gap?: keyof typeof theme.spacing;
 }
 
 export const Row = styled.div<RowProps>`
@@ -25,7 +25,7 @@ export const Row = styled.div<RowProps>`
   justify-content: ${({ justify }) => justify || 'unset'};
 
   & > ${Col} {
-    padding: 0 calc(${({ gap = 'xl' }) => t.spacing[gap]} / 2);
+    padding: 0 calc(${({ gap = 'xl' }) => theme.spacing[gap]} / 2);
     &:first-child {
       padding-left: 0;
     }

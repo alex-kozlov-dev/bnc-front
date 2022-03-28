@@ -1,22 +1,22 @@
 // import { faFacebook, faInstagram, faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Icon } from '../Icon'
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  gap: ${t.spacing.s};
-  color: ${t.colors.white};
+  gap: ${theme.spacing.s};
+  color: ${theme.colors.white};
 `
 
 const LinkAnchor = styled.a<{ black?: boolean }>`
-  color: ${({ black }) => black ? t.colors.gray[8] : t.colors.white};
+  color: ${({ black }) => black ? theme.colors.gray[8] : theme.colors.white};
   transition: color 0.2s, transform 0.2s;
   &:hover {
-    color: ${t.colors.blue};
+    color: ${theme.colors.blue};
   }
 
   &:active {

@@ -1,8 +1,8 @@
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 
 const sizes = {
-  ...t.sizes.content,
+  ...theme.sizes.content,
   'full-width': '100%'
 }
 
@@ -14,7 +14,7 @@ type Props = {
 
 export const Content = styled.div<Props>`
   box-sizing: border-box;
-  padding: ${t.spacing.s} ${t.spacing.m};
+  padding: ${theme.spacing.s} ${theme.spacing.m};
   width: 100%;
   max-width: ${({ size = 'narrow' }) => sizes[size]};
   margin: 0 auto;

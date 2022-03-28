@@ -1,4 +1,4 @@
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from 'src/components/Button'
 import { Ukraine } from './Ukraine'
@@ -15,9 +15,9 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: ${t.spacing.l};
-  margin-top: calc(-${t.sizes.topHeader} - ${t.sizes.header});
-  padding-top: calc(${t.sizes.topHeader} + ${t.sizes.header});
+  gap: ${theme.spacing.l};
+  margin-top: calc(-${theme.sizes.topHeader} - ${theme.sizes.header});
+  padding-top: calc(${theme.sizes.topHeader} + ${theme.sizes.header});
 `
 
 const Title = styled(Heading)`

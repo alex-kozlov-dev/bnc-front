@@ -1,4 +1,4 @@
-import { t } from 'src/theme'
+import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from '../Button'
 import { Section, SectionProps } from '../Section'
@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: ${t.spacing.xl};
+  gap: ${theme.spacing.xl};
 `
 
 type Props = SectionProps & {
@@ -19,7 +19,7 @@ export const DonateCTASection = ({ title, ...props }: Props) => {
   return (
     <Section variant="black" size="wide" {...props}>
       <Container>
-        <Heading typography={t.typography.head['1.5'].regular}>
+        <Heading typography={theme.typography.head['1.5'].regular}>
           {title}
         </Heading>
         <Button variant="primary-inverse">
