@@ -39,7 +39,7 @@ export const Splash = ({ title, text }: Props) => {
         <Row align='center'>
           <Col size={6}>
             <Rhytm>
-              <Title>
+              <Title typography={theme.typography.head[2.5].italic}>
                 {title}
               </Title>
               <Text>

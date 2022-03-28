@@ -13,7 +13,9 @@ const Container = styled.section<{ variant: Variant }>`
 `
 
 const Title = styled(Heading)`
-  margin-bottom: 1rem;
+  & {
+    margin-bottom: 1rem;
+  }
 `
 
 export type SectionProps = {

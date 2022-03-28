@@ -5,7 +5,7 @@ export const Logo = styled.div.attrs({
   children: 'BNC'
 })`
   display: inline-block;
-  ${theme.typography.head[3].regular}
+  ${theme.typography.head[2].regular}
   font-size: 2em;
   line-height: 1;
 `

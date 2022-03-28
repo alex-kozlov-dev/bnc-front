@@ -6,6 +6,6 @@ type Props = {
 
 export const Rhytm = styled.div<Props>`
   && > * + * {
-    margin-top: ${({ margin = 1.5 }) => `${margin}em`};
+    margin-top: ${({ margin = 1.3 }) => `${margin}em`};
   }
 `

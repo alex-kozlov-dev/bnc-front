@@ -55,7 +55,7 @@ export const ProjectsList = ({ items }: ProjectListProps) => {
           <Link href={`/projects/${slug}`} passHref key={i}>
             <Item imageUrl={imageUrl}>
               <TitleContainer>
-                <Text typography={theme.typography.head['1.5'].regular}>{title}</Text>
+                <Text typography={theme.typography.head[2].regular}>{title}</Text>
               </TitleContainer>
             </Item>
           </Link>

@@ -15,7 +15,7 @@ const common = css<CommonProps>`
 `
 
 export const Heading = styled.h1<CommonProps & { as?: HeadingTag }>`
-  ${theme.typography.head[3].regular}
+  ${theme.typography.head[2].regular}
   ${common}
 `
 

@@ -58,7 +58,7 @@ export const IconTextListSection = ({ items, ...props }: Props) => {
               <IconContainer>
                 <Icon prefix='fas' icon={icon} size="2x" />
               </IconContainer>
-              <Heading typography={theme.typography.head['1.5'].regular} align="center">
+              <Heading typography={theme.typography.head[1.5].regular} align="center">
                 {title}
               </Heading>
               <Text>

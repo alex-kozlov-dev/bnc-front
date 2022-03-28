@@ -46,7 +46,7 @@ const QAItem = ({ question, answer }: Item) => {
   return (
     <ItemContainer onClick={() => setOpen(!open)}>
       <Question>
-        <Text typography={theme.typography.head['1.5'].regular}>
+        <Text typography={theme.typography.head[2].regular}>
           {question}
         </Text>
         <Icon icon="fa-chevron-right" rotate={open ? 90 : 0} />

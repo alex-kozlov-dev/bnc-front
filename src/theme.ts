@@ -62,16 +62,31 @@ export const theme = {
           font-style: italic;
         `
       },
-      3: {
+      2: {
         regular: `
           font-family: ${montserat};
-          font-size: 3em;
+          font-size: 2em;
           line-height: 1;
           font-weight: 900;
         `,
         italic: `
           font-family: ${montserat};
-          font-size: 3em;
+          font-size: 2em;
+          line-height: 1;
+          font-weight: 900;
+          font-style: italic;
+        `
+      },
+      2.5: {
+        regular: `
+          font-family: ${montserat};
+          font-size: 2.5em;
+          line-height: 1;
+          font-weight: 900;
+        `,
+        italic: `
+          font-family: ${montserat};
+          font-size: 2.5em;
           line-height: 1;
           font-weight: 900;
           font-style: italic;

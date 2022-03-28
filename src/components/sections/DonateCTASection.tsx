@@ -22,7 +22,7 @@ export const DonateCTASection = ({ title, ...props }: Props) => {
   return (
     <Section variant="black" size="wide" {...props}>
       <Container>
-        <Heading typography={theme.typography.head['1.5'].regular}>
+        <Heading typography={theme.typography.head[2].regular}>
           {title}
         </Heading>
         <Button variant="primary-inverse">
