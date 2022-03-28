@@ -43,7 +43,7 @@ export const PageLayout: FC<MetaProps> = ({ children, footer }) => {
       <Main>
         {children}
       </Main>
-      <Footer links={links} text={footer.text} />
+      <Footer links={links} text={'footer.text'} />
     </Container>
   )
 }

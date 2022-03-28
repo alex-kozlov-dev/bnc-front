@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'src/components/Link'
 import { Section } from 'src/components/Section'
 import { Text } from 'src/components/Typography'
 import { theme } from 'src/theme'

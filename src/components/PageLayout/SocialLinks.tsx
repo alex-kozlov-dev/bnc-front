@@ -1,9 +1,9 @@
 // import { faFacebook, faInstagram, faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Icon } from '../Icon'
+import { Link } from '../Link'
 
 const Container = styled.div`
   display: flex;

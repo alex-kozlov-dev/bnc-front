@@ -1,19 +1,14 @@
-import { Home, HomeProps } from 'src/pages/Home'
-import { getSharedData, GetStaticProps } from 'src/nextHelpers'
-import { mock } from 'mock/mock'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
-export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => ({
-  props: {
-    ...(await getSharedData(locale)),
-    splash: mock[locale].home.splash,
-    iconTextList: mock[locale].home.iconTextList,
-    textImage: mock[locale].home.textImage,
-    text: mock[locale].home.text,
-    numberedList: mock[locale].home.numberedList,
-    donateCta: mock[locale].home.donateCTA,
-    partners: mock[locale].home.partners,
-    qa: mock[locale].home.qa
-  }
-})
+const Redirect = () => {
+  const router = useRouter()
 
-export default Home
+  useEffect(() => {
+    router.push('/uk')
+  }, [router])
+
+  return null
+}
+
+export default Redirect

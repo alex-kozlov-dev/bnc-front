@@ -1,11 +1,11 @@
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from 'src/components/Button'
-import Link from 'next/link'
 import { Logo } from '../Logo'
 import { useEffect, useMemo, useState } from 'react'
 import throttle from 'lodash/throttle'
 import { useTranslation } from 'react-i18next'
+import { Link } from '../Link'
 
 const HeaderLogo = styled(Logo)`
   margin-right: auto;
