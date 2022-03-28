@@ -1,6 +1,7 @@
 import { Home, HomeProps } from 'src/pages/Home'
 import { createStaticPaths, getSharedData, GetStaticProps } from 'src/nextHelpers'
 import { mock } from 'mock/mock'
+import { withLayout } from 'src/components/PageLayout'
 
 export const getStaticProps: GetStaticProps<HomeProps> = async (ctx) => ({
   props: {
@@ -21,4 +22,4 @@ export const getStaticPaths = createStaticPaths(() => ({
   fallback: false
 }))
 
-export default Home
+export default withLayout(Home)

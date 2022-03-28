@@ -1,6 +1,7 @@
 import { mock } from 'mock/mock'
 import { SSRConfig } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { LayoutProps } from './components/PageLayout/PageLayout'
 
 type GetStaticPropsCtx<Query = {}> = {
   params: Query & {
@@ -10,27 +11,19 @@ type GetStaticPropsCtx<Query = {}> = {
 
 type MaybeAsync<Fn extends (...args: any) => any> = Fn | ((...args: Parameters<Fn>) => Promise<ReturnType<Fn>>)
 
-export type MetaProps = {
-  meta: {
-    footer: {
-      text: string;
-    }
-  }
-}
-
-export type SharedData = SSRConfig & MetaProps
+export type SharedData = SSRConfig & { layout: LayoutProps }
 
 export type GetStaticProps<Props = {}, Query = {}> = MaybeAsync<(ctx: GetStaticPropsCtx<Query>) => { props?: Props & SharedData; notFound?: true }>
 
 export const getSharedData = async <T extends GetStaticPropsCtx<any>>(ctx: T): Promise<SharedData> => {
-  const [ssrConfig, meta] = await Promise.all([
+  const [ssrConfig, layout] = await Promise.all([
     serverSideTranslations(ctx.params.locale),
     Promise.resolve({ footer: mock[ctx.params.locale].footer })
   ])
 
   return {
     ...ssrConfig,
-    meta
+    layout
   }
 }
 

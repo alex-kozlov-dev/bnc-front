@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { ComponentType, FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { Footer } from './Footer'
@@ -27,13 +27,13 @@ const useNavigationLinks = () => {
   ]
 }
 
-export type MetaProps = {
+export type LayoutProps = {
   footer: {
     text: string;
   }
 }
 
-export const PageLayout: FC<MetaProps> = ({ children, footer }) => {
+export const PageLayout: FC<LayoutProps> = ({ children, footer }) => {
   const links = useNavigationLinks()
 
   return (
@@ -43,7 +43,21 @@ export const PageLayout: FC<MetaProps> = ({ children, footer }) => {
       <Main>
         {children}
       </Main>
-      <Footer links={links} text={'footer.text'} />
+      <Footer links={links} text={footer.text} />
     </Container>
   )
+}
+
+export const withLayout = <C extends ComponentType<any>>(Comp: C) => {
+  const WithLayout = (props: any) => (
+  <PageLayout {...props.layout}>
+    <Comp {...props} />
+  </PageLayout>
+  )
+
+  const displayName = Comp.displayName || Comp.name || 'Anonymous'
+
+  WithLayout.displayName = `WithLayout(${displayName})`
+
+  return WithLayout
 }

@@ -1,4 +1,5 @@
 import { mock } from 'mock/mock'
+import { withLayout } from 'src/components/PageLayout'
 import { createStaticPaths, getSharedData, GetStaticProps } from 'src/nextHelpers'
 import { ProjectsList } from 'src/pages/ProjectsList'
 import { ProjectListProps } from 'src/pages/ProjectsList/ProjectsList'
@@ -15,4 +16,4 @@ export const getStaticPaths = createStaticPaths(() => ({
   fallback: false
 }))
 
-export default ProjectsList
+export default withLayout(ProjectsList)
