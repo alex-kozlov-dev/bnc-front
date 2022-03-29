@@ -23,14 +23,9 @@ export const Row = styled.div<RowProps>`
   flex-wrap: wrap;
   align-items: ${({ align }) => align || 'unset'};
   justify-content: ${({ justify }) => justify || 'unset'};
+  margin: calc(${({ gap = 'l' }) => theme.spacing[gap]} / -2);
 
   & > ${Col} {
-    padding: 0 calc(${({ gap = 'xl' }) => theme.spacing[gap]} / 2);
-    &:first-child {
-      padding-left: 0;
-    }
-    &:last-child {
-      padding-right: 0;
-    }
+    padding: calc(${({ gap = 'l' }) => theme.spacing[gap]} / 2);
   }
 `

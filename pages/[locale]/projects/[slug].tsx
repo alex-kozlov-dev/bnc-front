@@ -7,17 +7,30 @@ type Params = {
   slug: string;
 }
 
-export const getStaticProps: GetStaticProps<ProjectProps, Params> = async (ctx) => ({
-  props: {
-    ...(await getSharedData(ctx)),
-    ...mock[ctx.params.locale].project
+export const getStaticProps: GetStaticProps<ProjectProps, Params> = async (ctx) => {
+  const projects = mock[ctx.params.locale].projects.items
+
+  const project = projects.find(({ slug }) => slug === ctx.params.slug)
+
+  if (!project) {
+    return {
+      notFound: true
+    }
   }
-})
+
+  const otherProjects = projects.filter(({ slug }) => slug !== ctx.params.slug).slice(0, 3)
+
+  return ({
+    props: {
+      ...(await getSharedData(ctx)),
+      project,
+      otherProjects
+    }
+  })
+}
 
 export const getStaticPaths = createStaticPaths<Params>(() => ({
-  paths: [
-    { params: { slug: 'ololo' } }
-  ],
+  paths: mock.en.projects.items.map(({ slug }) => ({ params: { slug } })),
   fallback: false
 }))
 

@@ -101,30 +101,32 @@ export const mock = makeMock(lorem => ({
     items: [
       {
         title: lorem(4),
+        summary: lorem(20),
+        text: lorem(),
         imageUrl: 'https://www.fillmurray.com/500/500',
-        slug: 'ololo'
+        slug: 'proj-1'
       },
       {
         title: lorem(4),
+        summary: lorem(20),
+        text: lorem(),
         imageUrl: 'https://www.fillmurray.com/500/501',
-        slug: 'ololo'
+        slug: 'proj-2'
       },
       {
         title: lorem(4),
+        summary: lorem(20),
+        text: lorem(),
         imageUrl: 'https://www.fillmurray.com/500/502',
-        slug: 'ololo'
+        slug: 'proj-3'
       },
       {
         title: lorem(4),
-        imageUrl: 'https://www.fillmurray.com/500/502',
-        slug: 'ololo'
+        summary: lorem(20),
+        text: lorem(),
+        imageUrl: 'https://www.fillmurray.com/500/503',
+        slug: 'proj-4'
       }
     ]
-  },
-  project: {
-    imageUrl: 'https://www.fillmurray.com/1400/302',
-    title: lorem(3),
-    text: lorem(),
-    slug: 'ololo'
   }
 }))
