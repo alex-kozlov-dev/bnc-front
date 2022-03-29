@@ -18,7 +18,10 @@ export type GetStaticProps<Props = {}, Query = {}> = MaybeAsync<(ctx: GetStaticP
 export const getSharedData = async <T extends GetStaticPropsCtx<any>>(ctx: T): Promise<SharedData> => {
   const [ssrConfig, layout] = await Promise.all([
     serverSideTranslations(ctx.params.locale),
-    Promise.resolve({ footer: mock[ctx.params.locale].footer })
+    Promise.resolve({
+      footer: mock[ctx.params.locale].footer,
+      socialLinks: mock[ctx.params.locale].socialLinks.items as any
+    })
   ])
 
   return {

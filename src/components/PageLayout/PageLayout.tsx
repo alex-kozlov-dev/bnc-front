@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { SocialLink } from './SocialLinks'
 import { TopHeader } from './TopHeader'
 
 const Container = styled.div`
@@ -31,19 +32,20 @@ export type LayoutProps = {
   footer: {
     text: string;
   }
+  socialLinks: SocialLink[];
 }
 
-export const PageLayout: FC<LayoutProps> = ({ children, footer }) => {
+export const PageLayout: FC<LayoutProps> = ({ children, footer, socialLinks }) => {
   const links = useNavigationLinks()
 
   return (
     <Container>
-      <TopHeader />
+      <TopHeader socialLinks={socialLinks} />
       <Header links={links} />
       <Main>
         {children}
       </Main>
-      <Footer links={links} text={footer.text} />
+      <Footer links={links} socialLinks={socialLinks} text={footer.text} />
     </Container>
   )
 }

@@ -1,7 +1,7 @@
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { LocaleSwitcher } from '../LocaleSwitcher'
-import { SocialLinks } from './SocialLinks'
+import { SocialLink, SocialLinks } from './SocialLinks'
 
 const Container = styled.div`
   position: relative;
@@ -27,10 +27,14 @@ const LocaleLink = styled(LocaleSwitcher)`
   }
 `
 
-export const TopHeader = () => {
+type Props = {
+  socialLinks: SocialLink[];
+}
+
+export const TopHeader = ({ socialLinks }: Props) => {
   return (
     <Container>
-      <SocialLinks />
+      <SocialLinks links={socialLinks} />
       <LocaleLink />
     </Container>
   )

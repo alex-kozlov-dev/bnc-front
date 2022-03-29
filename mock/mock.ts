@@ -8,6 +8,13 @@ const makeMock = <T extends any>(fn: (lorem: (words?: number) => string) => T): 
 }
 
 export const mock = makeMock(lorem => ({
+  socialLinks: {
+    items: [
+      { type: 'facebook', url: '#' },
+      { type: 'instagram', url: '#' },
+      { type: 'telegram', url: '#' }
+    ]
+  },
   footer: {
     text: lorem(15)
   },

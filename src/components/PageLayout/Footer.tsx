@@ -7,7 +7,7 @@ import { Link } from '../Link'
 import { Logo } from '../Logo'
 import { Rhytm } from '../Rhytm'
 import { Text } from '../Typography'
-import { SocialLinks } from './SocialLinks'
+import { SocialLink, SocialLinks } from './SocialLinks'
 
 const Container = styled.footer`
   background: ${theme.colors.gray[8]};
@@ -50,13 +50,14 @@ const MenuLink = styled.a`
 
 type Props = {
   text: string;
+  socialLinks: SocialLink[];
   links: {
     title: string;
     href: string;
   }[]
 }
 
-export const Footer = ({ links, text }: Props) => {
+export const Footer = ({ links, socialLinks, text }: Props) => {
   const { t } = useTranslation()
 
   return (
@@ -88,7 +89,7 @@ export const Footer = ({ links, text }: Props) => {
               </Nav>
             </Col>
           </Row>
-          <SocialLinks />
+          <SocialLinks links={socialLinks} />
           <Text typography={theme.typography.text['0.8'].regular} align="center">
             {t('© BNC, 2022')}
           </Text>

@@ -1,9 +1,6 @@
-// import { faFacebook, faInstagram, faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Icon } from '../Icon'
-import { Link } from '../Link'
 
 const Container = styled.div`
   display: flex;
@@ -24,33 +21,24 @@ const LinkAnchor = styled.a<{ black?: boolean }>`
   }
 `
 
+export type SocialLink = {
+  type: 'facebook' | 'instagram' | 'twitter' | 'telegram';
+  url: string;
+}
+
 type Props = {
+  links: SocialLink[];
   black?: boolean;
 }
 
-export const SocialLinks = ({ black }: Props) => {
+export const SocialLinks = ({ links, black }: Props) => {
   return (
     <Container>
-      <Link href="#" passHref>
-        <LinkAnchor black={black} >
-          <Icon prefix="fab" icon="fa-facebook" />
+      {links.map(({ type, url }, i) => (
+        <LinkAnchor black={black} href={url} target="_blank" key={i}>
+          <Icon prefix="fab" icon={`fa-${type}`} />
         </LinkAnchor>
-      </Link>
-      <Link href="#" passHref>
-        <LinkAnchor black={black} >
-          <Icon prefix="fab" icon="fa-instagram" />
-        </LinkAnchor>
-      </Link>
-      <Link href="#" passHref>
-        <LinkAnchor black={black} >
-          <Icon prefix="fab" icon="fa-twitter" />
-        </LinkAnchor>
-      </Link>
-      <Link href="#" passHref>
-        <LinkAnchor black={black} >
-          <Icon prefix="fab" icon="fa-telegram" />
-        </LinkAnchor>
-      </Link>
+      ))}
     </Container>
   )
 }
