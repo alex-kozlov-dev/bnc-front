@@ -58,10 +58,10 @@ export const Project = ({ project, otherProjects }: ProjectProps) => {
             {t('SWIFT')}
           </Heading>
           <Text whiteSpace='pre-line'>
-            {`Company Name: CO "INTERNATIONAL CHARITABLE FOUNDATION "COME BACK ALIVE"
-            Office address: 32, Bohdana Hmelnytskoho St., office 41, Kyiv
-            IBAN Code (Euro): UA093052990000026004025029786
-            IBAN Code (US Dollar): UA173052990000026009035028620
+            {`Company Name: CO "INTERNATIONAL CHARITABLE FOUNDATION "QWEQWEQWE"
+            Office address: 123, Bohdana Hmelnytskoho St., office 123, Kyiv
+            IBAN Code (Euro): UA1231231242341231241234123124
+            IBAN Code (US Dollar): UA12432454353214124235245234
             Name of the bank: JSC CB "PRIVATBANK", 1D HRUSHEVSKOHO STR., KYIV, 01001, UKRAINE
             Bank SWIFT Code: PBANUA2XXXX
             Purpose of payment: Charitable donation`}
@@ -70,10 +70,10 @@ export const Project = ({ project, otherProjects }: ProjectProps) => {
             {t('Ukraine bank transfer')}
           </Heading>
           <Text whiteSpace='pre-line'>
-            {`IBAN: UA223226690000026007300905964
-            ЄДРПОУ: 39696398
-            Отримувач: Благодійна Організація «Міжнародний благодійний фонд «Повернись живим»
-            Призначення платежу: Благодійна пожертва військовослужбовцям.`}
+            {`IBAN: UA12342353425234134235234234
+            ЄДРПОУ: 234345234
+            Отримувач: Благодійна Організація «Ффиавивсф фивафисфс»
+            Призначення платежу: Благодійна пожертва.`}
           </Text>
           <Heading typography={theme.typography.head['1.5'].regular}>
             {t('Other payment methods')}
