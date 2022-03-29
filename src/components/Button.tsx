@@ -30,6 +30,7 @@ export const Button = styled.button<{ variant?: Variant }>`
   padding: ${theme.spacing.xs} ${theme.spacing.m};
   border-radius: 8px;
   transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
 
   ${({ variant = 'primary' }) => variants[variant]}
 

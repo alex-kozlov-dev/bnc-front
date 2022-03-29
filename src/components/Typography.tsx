@@ -19,7 +19,12 @@ export const Heading = styled.h1<CommonProps & { as?: HeadingTag }>`
   ${common}
 `
 
-export const Text = styled.p<CommonProps>`
+type TextProps = {
+  whiteSpace?: 'pre-line';
+}
+
+export const Text = styled.p<CommonProps & TextProps>`
   ${theme.typography.text[1].regular}
   ${common}
+  white-space: ${({ whiteSpace }) => whiteSpace || 'unset'};
 `
