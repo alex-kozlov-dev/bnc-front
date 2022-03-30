@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "extract-translations": "i18next --config i18next-parser.config.js",
     "start": "next start",
     "lint": "next lint"
@@ -18,7 +18,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-i18next": "^11.16.2",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.180",

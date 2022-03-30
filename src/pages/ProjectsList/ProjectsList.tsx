@@ -1,7 +1,7 @@
+import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import { AspectRatioImage } from 'src/components/AspectRatioImage'
 import { Col, Row } from 'src/components/Grid'
-import { Link } from 'src/components/Link'
 import { Rhytm } from 'src/components/Rhytm'
 import { Section } from 'src/components/Section'
 import { Heading, Text } from 'src/components/Typography'

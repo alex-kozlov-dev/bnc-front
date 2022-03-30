@@ -8,7 +8,7 @@ type Params = {
 }
 
 export const getStaticProps: GetStaticProps<ProjectProps, Params> = async (ctx) => {
-  const projects = mock[ctx.params.locale].projects.items
+  const projects = mock[ctx.locale].projects.items
 
   const project = projects.find(({ slug }) => slug === ctx.params.slug)
 

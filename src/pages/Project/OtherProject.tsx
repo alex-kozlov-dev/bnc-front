@@ -1,5 +1,5 @@
+import Link from 'next/link'
 import { AspectRatioImage } from 'src/components/AspectRatioImage'
-import { Link } from 'src/components/Link'
 import { Rhytm } from 'src/components/Rhytm'
 import { Text } from 'src/components/Typography'
 import { theme } from 'src/theme'

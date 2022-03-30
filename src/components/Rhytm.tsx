@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const Rhytm = styled.div<Props>`
-  && > * + * {
+  & > * + * {
     margin-top: ${({ margin = 1.3 }) => `${margin}em`};
   }
 `

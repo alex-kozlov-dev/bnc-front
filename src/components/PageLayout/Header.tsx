@@ -5,7 +5,7 @@ import { Logo } from '../Logo'
 import { useEffect, useMemo, useState } from 'react'
 import throttle from 'lodash/throttle'
 import { useTranslation } from 'react-i18next'
-import { Link } from '../Link'
+import Link from 'next/link'
 
 const HeaderLogo = styled(Logo)`
   margin-right: auto;
