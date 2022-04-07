@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { QAPageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Icon } from '../Icon'
@@ -36,10 +37,7 @@ const Answer = styled.div<{ open?: boolean }>`
   }
 `
 
-type Item = {
-  question: string;
-  answer: string;
-}
+type Item = QAPageSection['questions'][0]
 
 const QAItem = ({ question, answer }: Item) => {
   const [open, setOpen] = useState(false)
@@ -61,16 +59,16 @@ const QAItem = ({ question, answer }: Item) => {
 }
 
 type Props = SectionProps & {
-  items: Item[]
+  data: QAPageSection;
 }
 
-export const QASection = ({ items, ...props }: Props) => {
+export const QASection = ({ data, ...props }: Props) => {
   const { t } = useTranslation()
 
   return (
     <Section size="narrow" title={t('Q&A')} {...props}>
       <Rhytm>
-        {items.map((props, i) => <QAItem key={i} {...props} />)}
+        {data.questions.map((props, i) => <QAItem key={i} {...props} />)}
       </Rhytm>
     </Section>
   )

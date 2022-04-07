@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { PartnersPageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Rhytm } from '../Rhytm'
@@ -33,21 +34,18 @@ const Item = styled.img`
 `
 
 type Props = SectionProps & {
-  partners: {
-    imageUrl: string;
-    alt: string;
-  }[]
+  data: PartnersPageSection;
 }
 
-export const PartnersSection = ({ partners, ...props }: Props) => {
+export const PartnersSection = ({ data, ...props }: Props) => {
   const { t } = useTranslation()
 
   return (
     <Section size="wide" title={t('Our partners')} {...props}>
       <Rhytm margin={3}>
         <Container>
-          {partners.map(({ imageUrl, alt }, i) => (
-            <Item key={i} src={imageUrl} alt={alt} title={alt} />
+          {data.partners.map(({ id, image, title }) => (
+            <Item key={id} src={image} alt={title} title={title} />
           ))}
         </Container>
       </Rhytm>

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { DonateCtaPageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from '../Button'
@@ -13,17 +14,17 @@ const Container = styled.div`
 `
 
 type Props = SectionProps & {
-  title: string;
+  data: DonateCtaPageSection;
 }
 
-export const DonateCTASection = ({ title, ...props }: Props) => {
+export const DonateCTASection = ({ data, ...props }: Props) => {
   const { t } = useTranslation()
 
   return (
     <Section variant="black" size="wide" {...props}>
       <Container>
         <Heading typography={theme.typography.head[2].regular}>
-          {title}
+          {data.cta}
         </Heading>
         <Button variant="primary-inverse">
           {t('Donate now')}

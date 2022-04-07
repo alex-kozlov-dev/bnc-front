@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { PreviewModeBanner } from './PreviewModeBanner'
 import { SocialLink } from './SocialLinks'
 import { TopHeader } from './TopHeader'
 
@@ -33,9 +34,10 @@ export type LayoutProps = {
     text: string;
   }
   socialLinks: SocialLink[];
+  previewMode: boolean;
 }
 
-export const PageLayout: FC<LayoutProps> = ({ children, footer, socialLinks }) => {
+export const PageLayout: FC<LayoutProps> = ({ children, footer, socialLinks, previewMode }) => {
   const links = useNavigationLinks()
 
   return (
@@ -46,6 +48,7 @@ export const PageLayout: FC<LayoutProps> = ({ children, footer, socialLinks }) =
         {children}
       </Main>
       <Footer links={links} socialLinks={socialLinks} text={footer.text} />
+      {previewMode && <PreviewModeBanner />}
     </Container>
   )
 }

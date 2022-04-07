@@ -1,8 +1,6 @@
-// import { IconName } from '@fortawesome/free-solid-svg-icons'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconTextListPageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
-import { Icon } from '../Icon'
 import { Rhytm } from '../Rhytm'
 import { Section, SectionProps } from '../Section'
 import { Heading, Text } from '../Typography'
@@ -24,11 +22,13 @@ const Item = styled.div`
 `
 
 const IconContainer = styled.div`
+  box-sizing: border-box;
   position: absolute;
   width: 96px;
   height: 96px;
   top: 0;
   left: 50%;
+  padding: ${theme.spacing.m};
   transform: translate(-50%, -50%);
   background: white;
   border-radius: 100%;
@@ -39,30 +39,33 @@ const IconContainer = styled.div`
   color: ${theme.colors.gray[5]};
 `
 
+const Icon = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`
+
 type Props = SectionProps & {
-  items: {
-    // icon: IconName;
-    icon: any;
-    title: string;
-    text: string;
-  }[]
+  data: IconTextListPageSection;
 }
 
-export const IconTextListSection = ({ items, ...props }: Props) => {
+export const IconTextListSection = ({ data, ...props }: Props) => {
   return (
     <Section size="wide" {...props}>
       <Container>
-        {items.map(({ icon, title, text }, i) => (
+        {data.icon_text_items.map(({ icon, title, summary, details }, i) => (
           <Item key={i}>
             <Rhytm>
               <IconContainer>
-                <Icon prefix='fas' icon={icon} size="2x" />
+                <Icon src={icon} alt={title} />
               </IconContainer>
               <Heading typography={theme.typography.head[1.5].regular} align="center">
                 {title}
               </Heading>
               <Text>
-                {text}
+                {summary}
+                {details}
               </Text>
             </Rhytm>
           </Item>

@@ -1,3 +1,4 @@
+import { TextListPageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Section, SectionProps } from '../Section'
@@ -38,17 +39,15 @@ const ItemText = styled(Text)`
 `
 
 type Props = SectionProps & {
-  items: {
-    text: string;
-  }[]
+  data: TextListPageSection;
 }
 
-export const NumberedTextListSection = ({ items, ...props }: Props) => {
+export const NumberedTextListSection = ({ data, ...props }: Props) => {
   return (
     <Section size="wide" {...props} >
       <Container>
-        {items.map(({ text }, i) => (
-          <Item key={i} number={i + 1}>
+        {data.text_items.map(({ id, text }, i) => (
+          <Item key={id} number={i + 1}>
             <ItemText>{text}</ItemText>
           </Item>
         ))}

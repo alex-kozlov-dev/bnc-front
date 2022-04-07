@@ -1,3 +1,4 @@
+import { TextImagePageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Col, Row } from '../Grid'
@@ -12,13 +13,12 @@ const Image = styled.img`
 `
 
 type Props = SectionProps & {
-  title: string;
-  text: string;
-  imageUrl: string;
-  imageAlt: string;
-}
+  data: TextImagePageSection;
+};
 
-export const TextImageSection = ({ title, text, imageUrl, imageAlt, ...props }: Props) => {
+export const TextImageSection = ({ data, ...props }: Props) => {
+  const { title, text, image } = data
+
   return (
     <Section size="wide" {...props}>
       <Row>
@@ -33,7 +33,7 @@ export const TextImageSection = ({ title, text, imageUrl, imageAlt, ...props }: 
           </Rhytm>
         </Col>
         <Col size={6}>
-          <Image src={imageUrl} alt={imageAlt} />
+          <Image src={image} alt={title} />
         </Col>
       </Row>
     </Section>

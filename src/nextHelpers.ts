@@ -3,14 +3,15 @@ import { SSRConfig } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { LayoutProps } from './components/PageLayout/PageLayout'
 
-type GetStaticPropsCtx<Query = {}> = {
+export type GetStaticPropsCtx<Query = {}> = {
   params: Query;
   locale: string;
+  preview?: boolean;
 }
 
 type MaybeAsync<Fn extends (...args: any) => any> = Fn | ((...args: Parameters<Fn>) => Promise<ReturnType<Fn>>)
 
-export type SharedData = SSRConfig & { layout: LayoutProps }
+export type SharedData = SSRConfig & { layout: LayoutProps; }
 
 export type GetStaticProps<Props = {}, Query = {}> = MaybeAsync<(ctx: GetStaticPropsCtx<Query>) => { props?: Props & SharedData; notFound?: true }>
 
@@ -19,7 +20,8 @@ export const getSharedData = async <T extends GetStaticPropsCtx<any>>(ctx: T): P
     serverSideTranslations(ctx.locale),
     Promise.resolve({
       footer: mock[ctx.locale].footer,
-      socialLinks: mock[ctx.locale].socialLinks.items as any
+      socialLinks: mock[ctx.locale].socialLinks.items as any,
+      previewMode: !!ctx.preview
     })
   ])
 

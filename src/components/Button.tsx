@@ -25,6 +25,7 @@ const variants = {
 type Variant = keyof typeof variants
 
 export const Button = styled.button<{ variant?: Variant }>`
+  ${theme.reset.link}
   ${theme.reset.button}
   ${theme.typography.text[1].bold}
   padding: ${theme.spacing.xs} ${theme.spacing.m};
