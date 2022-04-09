@@ -1,3 +1,4 @@
+import { SocialLink } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Icon } from '../Icon'
@@ -21,11 +22,6 @@ const LinkAnchor = styled.a<{ black?: boolean }>`
   }
 `
 
-export type SocialLink = {
-  type: 'facebook' | 'instagram' | 'twitter' | 'telegram';
-  url: string;
-}
-
 type Props = {
   links: SocialLink[];
   black?: boolean;
@@ -34,9 +30,9 @@ type Props = {
 export const SocialLinks = ({ links, black }: Props) => {
   return (
     <Container>
-      {links.map(({ type, url }, i) => (
-        <LinkAnchor black={black} href={url} target="_blank" key={i}>
-          <Icon prefix="fab" icon={`fa-${type}`} />
+      {links.map(({ social_type, link }, i) => (
+        <LinkAnchor black={black} href={link} target="_blank" key={i}>
+          <Icon prefix="fab" icon={`fa-${social_type}`} />
         </LinkAnchor>
       ))}
     </Container>

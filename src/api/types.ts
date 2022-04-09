@@ -60,17 +60,22 @@ export type Homepage = {
   page_sections: PageSection[];
 }
 
+export type SocialLink = {
+  id: number;
+  social_type: 'facebook' | 'instagram' | 'telegram' | 'twitter';
+  link: string;
+}
+
 export type Meta = {
   title: string;
   description: string;
   address: string;
   email: string;
   phone_number: string;
-  social_links: {
-    id: number;
-    type: 'facebook' | 'instagram' | 'telegram' | 'twitter';
-    link: string;
-  }[];
+  logo: string;
+  logo_inverted: string;
+  social_links: SocialLink[];
+  copyright: string;
 }
 
 export type PostShort = {

@@ -1,11 +1,18 @@
 import { ComponentType, FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
+import { Meta } from 'src/api/types'
+import { theme } from 'src/theme'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { PreviewModeBanner } from './PreviewModeBanner'
-import { SocialLink } from './SocialLinks'
 import { TopHeader } from './TopHeader'
+
+const GlobalStyles = createGlobalStyle`
+  body {
+    background: ${theme.colors.gray[8]};
+  }
+`
 
 const Container = styled.div`
   min-height: 100vh;
@@ -30,24 +37,23 @@ const useNavigationLinks = () => {
 }
 
 export type LayoutProps = {
-  footer: {
-    text: string;
-  }
-  socialLinks: SocialLink[];
+  meta: Meta;
   previewMode: boolean;
 }
 
-export const PageLayout: FC<LayoutProps> = ({ children, footer, socialLinks, previewMode }) => {
+export const PageLayout: FC<LayoutProps> = ({ children, meta, previewMode }) => {
   const links = useNavigationLinks()
+  console.log(meta)
 
   return (
     <Container>
-      <TopHeader socialLinks={socialLinks} />
-      <Header links={links} />
+      <GlobalStyles />
+      <TopHeader socialLinks={meta.social_links} />
+      <Header links={links} logo={meta.logo} />
       <Main>
         {children}
       </Main>
-      <Footer links={links} socialLinks={socialLinks} text={footer.text} />
+      <Footer logo={meta.logo_inverted} links={links} socialLinks={meta.social_links} text={meta.description} copyright={meta.copyright} />
       {previewMode && <PreviewModeBanner />}
     </Container>
   )
@@ -55,7 +61,7 @@ export const PageLayout: FC<LayoutProps> = ({ children, footer, socialLinks, pre
 
 export const withLayout = <C extends ComponentType<any>>(Comp: C) => {
   const WithLayout = (props: any) => (
-  <PageLayout {...props.layout}>
+  <PageLayout meta={props.meta} previewMode={props.previewMode}>
     <Comp {...props} />
   </PageLayout>
   )

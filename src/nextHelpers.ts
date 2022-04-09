@@ -1,7 +1,7 @@
-import { mock } from 'mock/mock'
 import { SSRConfig } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { LayoutProps } from './components/PageLayout/PageLayout'
+import { createApi } from './api'
+import { Meta } from './api/types'
 
 export type GetStaticPropsCtx<Query = {}> = {
   params: Query;
@@ -11,23 +11,22 @@ export type GetStaticPropsCtx<Query = {}> = {
 
 type MaybeAsync<Fn extends (...args: any) => any> = Fn | ((...args: Parameters<Fn>) => Promise<ReturnType<Fn>>)
 
-export type SharedData = SSRConfig & { layout: LayoutProps; }
+export type SharedData = SSRConfig & { meta: Meta; previewMode: boolean }
 
 export type GetStaticProps<Props = {}, Query = {}> = MaybeAsync<(ctx: GetStaticPropsCtx<Query>) => { props?: Props & SharedData; notFound?: true }>
 
 export const getSharedData = async <T extends GetStaticPropsCtx<any>>(ctx: T): Promise<SharedData> => {
-  const [ssrConfig, layout] = await Promise.all([
+  const api = createApi(ctx)
+
+  const [ssrConfig, meta] = await Promise.all([
     serverSideTranslations(ctx.locale),
-    Promise.resolve({
-      footer: mock[ctx.locale].footer,
-      socialLinks: mock[ctx.locale].socialLinks.items as any,
-      previewMode: !!ctx.preview
-    })
+    api.meta()
   ])
 
   return {
     ...ssrConfig,
-    layout
+    meta,
+    previewMode: !!ctx.preview
   }
 }
 

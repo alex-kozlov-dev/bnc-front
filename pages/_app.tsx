@@ -12,7 +12,6 @@ const GlobalStyles = createGlobalStyle`
     color: ${theme.colors.gray[8]};
     font-family: "Raleway", -apple-system, "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
-    background: ${theme.colors.gray[8]};
   }
 `
 

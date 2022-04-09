@@ -1,13 +1,18 @@
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from 'src/components/Button'
-import { Logo } from '../Logo'
 import { useEffect, useMemo, useState } from 'react'
 import throttle from 'lodash/throttle'
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
 
-const HeaderLogo = styled(Logo)`
+const Logo = styled.img`
+  height: 100%;
+`
+const LogoLink = styled.a`
+  position: relative;
+  top: -8px;
+  height: 39px;
   margin-right: auto;
 `
 
@@ -53,13 +58,6 @@ const MenuLink = styled.a<{ white: boolean }>`
   }
 `
 
-type Props = {
-  links: {
-    title: string;
-    href: string;
-  }[]
-}
-
 const scrollOffset = 40
 const useScrolledToTop = () => {
   const [scrolledToTop, setScrolledToTop] = useState(true)
@@ -83,13 +81,25 @@ const useScrolledToTop = () => {
   return scrolledToTop
 }
 
-export const Header = ({ links }: Props) => {
+type Props = {
+  logo: string;
+  links: {
+    title: string;
+    href: string;
+  }[]
+}
+
+export const Header = ({ links, logo }: Props) => {
   const scrolledToTop = useScrolledToTop()
   const { t } = useTranslation()
 
   return (
     <Container transparent={scrolledToTop}>
-      <HeaderLogo />
+      <Link href="/" passHref>
+        <LogoLink>
+          <Logo src={logo} />
+        </LogoLink>
+      </Link>
       <nav>
         <MenuList>
           {links.map(({ title, href }, i) => (

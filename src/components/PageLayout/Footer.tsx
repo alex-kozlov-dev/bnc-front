@@ -1,13 +1,22 @@
 import Link from 'next/link'
-import { useTranslation } from 'react-i18next'
+import { SocialLink } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Content } from '../Content'
 import { Col, Row } from '../Grid'
-import { Logo } from '../Logo'
 import { Rhytm } from '../Rhytm'
 import { Text } from '../Typography'
-import { SocialLink, SocialLinks } from './SocialLinks'
+import { SocialLinks } from './SocialLinks'
+
+const LogoLink = styled.a`
+  height: 48px;
+  display: block;
+`
+
+const LogoImg = styled.img`
+  height: 100%;
+  display: block;
+`
 
 const Container = styled.footer`
   background: ${theme.colors.gray[8]};
@@ -49,7 +58,9 @@ const MenuLink = styled.a`
 `
 
 type Props = {
+  logo: string;
   text: string;
+  copyright: string;
   socialLinks: SocialLink[];
   links: {
     title: string;
@@ -57,9 +68,7 @@ type Props = {
   }[]
 }
 
-export const Footer = ({ links, socialLinks, text }: Props) => {
-  const { t } = useTranslation()
-
+export const Footer = ({ logo, links, socialLinks, text, copyright }: Props) => {
   return (
     <Container>
       <Content>
@@ -67,7 +76,11 @@ export const Footer = ({ links, socialLinks, text }: Props) => {
           <Row justify="space-between">
             <Col size={4}>
               <Rhytm margin={0.8}>
-                <Logo />
+                <Link href="/" passHref>
+                  <LogoLink>
+                    <LogoImg src={logo} />
+                  </LogoLink>
+                </Link>
                 <Text typography={theme.typography.text['0.8'].regular}>
                   {text}
                 </Text>
@@ -91,7 +104,7 @@ export const Footer = ({ links, socialLinks, text }: Props) => {
           </Row>
           <SocialLinks links={socialLinks} />
           <Text typography={theme.typography.text['0.8'].regular} align="center">
-            {t('© BNC, 2022')}
+            {copyright}
           </Text>
         </Rhytm>
       </Content>

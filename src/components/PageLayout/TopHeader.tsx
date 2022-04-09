@@ -1,7 +1,8 @@
+import { SocialLink } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { LocaleSwitcher } from '../LocaleSwitcher'
-import { SocialLink, SocialLinks } from './SocialLinks'
+import { SocialLinks } from './SocialLinks'
 
 const Container = styled.div`
   position: relative;
