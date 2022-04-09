@@ -76,12 +76,14 @@ export type Meta = {
   logo_inverted: string;
   social_links: SocialLink[];
   copyright: string;
+  posts_exists: boolean;
+  files_exists: boolean;
 }
 
 export type PostShort = {
   id: number;
   title: string;
-  text: string;
+  slug: string;
   main_image_thumb: string;
 }
 

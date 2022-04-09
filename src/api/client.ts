@@ -8,11 +8,13 @@ export const createClient = (ctx: GetStaticPropsCtx) => {
   const password = process.env.API_PASSWORD
   const localePrefix = ctx.locale
 
+  const qs = ctx.preview ? '?preview=true' : ''
+
   const headers = new Headers()
   headers.append('Authorization', 'Basic ' + encode(`${user}:${password}`))
 
   const get = async <T = {}>(url: string) => {
-    const res = await fetch(`${apiUrl}/${localePrefix}${url}`, {
+    const res = await fetch(`${apiUrl}/${localePrefix}${url}${qs}`, {
       method: 'GET',
       headers
     })

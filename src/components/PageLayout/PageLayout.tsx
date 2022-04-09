@@ -1,7 +1,8 @@
-import { ComponentType, FC } from 'react'
+import { ComponentType, FC, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Meta } from 'src/api/types'
 import { theme } from 'src/theme'
+import { isTruthy } from 'src/utils'
 import styled, { createGlobalStyle } from 'styled-components'
 import { Footer } from './Footer'
 import { Header } from './Header'
@@ -25,15 +26,15 @@ const Main = styled.main`
   flex: 1;
 `
 
-const useNavigationLinks = () => {
+const useNavigationLinks = (meta: Meta) => {
   const { t } = useTranslation()
 
-  return [
+  return useMemo(() => [
     { title: t('Home'), href: '/' },
-    { title: t('Projects'), href: '/projects' },
-    { title: t('Documents'), href: '#' },
+    meta.posts_exists && { title: t('Our work'), href: '/our-work' },
+    meta.files_exists && { title: t('Documents'), href: '#' },
     { title: t('Contacts'), href: '#' }
-  ]
+  ].filter(isTruthy), [meta.files_exists, meta.posts_exists, t])
 }
 
 export type LayoutProps = {
@@ -42,7 +43,7 @@ export type LayoutProps = {
 }
 
 export const PageLayout: FC<LayoutProps> = ({ children, meta, previewMode }) => {
-  const links = useNavigationLinks()
+  const links = useNavigationLinks(meta)
 
   return (
     <Container>

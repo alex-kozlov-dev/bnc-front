@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Heading, Text } from 'src/components/Typography'
+import { Heading } from 'src/components/Typography'
+import { Wysiwyg } from 'src/components/Wysiwyg'
 import { SharedData } from 'src/nextHelpers'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
@@ -62,9 +63,7 @@ export const ComingSoon = ({ meta }: Props) => {
           </Link>
         </LinksItem>
       </LinksList>
-      <Text whiteSpace='pre-line'>
-        {meta.address}
-      </Text>
+      <Wysiwyg content={meta.address} />
     </Container>
   )
 }

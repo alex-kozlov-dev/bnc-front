@@ -1,7 +1,7 @@
 {
   "Donate now": "Donate now",
   "Home": "Home",
-  "Projects": "Projects",
+  "Our work": "Our work",
   "Documents": "Documents",
   "Contacts": "Contacts",
   "Preview mode": "Preview mode",
@@ -15,5 +15,6 @@
   "Ukraine bank transfer": "Ukraine bank transfer",
   "Other payment methods": "Other payment methods",
   "Visa / Mastercard": "Visa / Mastercard",
-  "Crypto": "Crypto"
+  "Crypto": "Crypto",
+  "Projects": "Projects"
 }

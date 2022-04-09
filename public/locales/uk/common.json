@@ -1,7 +1,7 @@
 {
   "Donate now": "Допомогти",
   "Home": "Головна",
-  "Projects": "Проєкти",
+  "Our work": "Діяльність фонду",
   "Documents": "Документи",
   "Contacts": "Контакти",
   "Preview mode": "Preview mode",
@@ -15,5 +15,6 @@
   "Ukraine bank transfer": "Переказ по Україні",
   "Other payment methods": "Інші способи",
   "Visa / Mastercard": "Банківська карта",
-  "Crypto": "Криптовалюта"
+  "Crypto": "Криптовалюта",
+  "Projects": "Проєкти"
 }

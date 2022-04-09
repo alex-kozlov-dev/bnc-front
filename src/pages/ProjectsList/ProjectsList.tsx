@@ -1,58 +1,56 @@
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
+import { PostShort } from 'src/api/types'
 import { AspectRatioImage } from 'src/components/AspectRatioImage'
 import { Col, Row } from 'src/components/Grid'
-import { Rhytm } from 'src/components/Rhytm'
 import { Section } from 'src/components/Section'
-import { Heading, Text } from 'src/components/Typography'
+import { Text } from 'src/components/Typography'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
+
+const Img = styled(AspectRatioImage)`
+  margin-bottom: 0.8em;
+`
 
 const ItemLink = styled.a`
   ${theme.reset.link}
   display: block;
-  background: white;
-  position: relative;
-  transition: box-shadow 0.2s;
-  border: 1px solid ${theme.colors.gray[1]};
-  border-radius: ${theme.borderRadius.s};
-  overflow: hidden;
-  ${theme.shadow[0]}
-  &:hover {
-    ${theme.shadow[1]}
+  text-align: center;
+
+  ${Img} {
+    transition: box-shadow 0.2s;
+    overflow: hidden;
+    ${theme.shadow[0]}
+    img {
+      transition: transform 0.2s;
+      transform: scale(1);
+    }
+  }
+
+  &:hover ${Img} {
+    ${theme.shadow[3]}
+    img {
+      transform: scale(1.2);
+    }
   }
 `
 
-const ItemContent = styled.div`
-  padding: ${theme.spacing.l};
-`
-
 export type ProjectListProps = {
-  items: {
-    imageUrl: string;
-    title: string;
-    summary: string;
-    slug: string;
-  }[]
+  items: PostShort[]
 }
 
 export const ProjectsList = ({ items }: ProjectListProps) => {
   const { t } = useTranslation()
 
   return (
-    <Section title={t('Projects')} size="wide">
-      <Row>
-        {items.map(({ imageUrl, title, summary, slug }, i) => (
-          <Col size={6} key={i}>
+    <Section title={t('Our work')} size="wide">
+      <Row gap='xxl'>
+        {items.map(({ title, main_image_thumb, slug }, i) => (
+          <Col size={4} key={i}>
             <Link href={`/projects/${slug}`} passHref>
               <ItemLink>
-                <AspectRatioImage src={imageUrl} alt={title} aspectRatio={16 / 9}/>
-                <ItemContent>
-                  <Rhytm>
-                    <Heading>{title}</Heading>
-                    <Text>{summary}</Text>
-                  </Rhytm>
-                </ItemContent>
+                <Img src={main_image_thumb} alt={title} aspectRatio={16 / 9}/>
+                <Text typography={theme.typography.head['1.5'].regular}>{title}</Text>
               </ItemLink>
             </Link>
           </Col>
