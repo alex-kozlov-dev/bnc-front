@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useTranslation } from 'react-i18next'
 import { Heading } from 'src/components/Typography'
 import { Wysiwyg } from 'src/components/Wysiwyg'
@@ -49,6 +50,9 @@ export const ComingSoon = ({ meta }: Props) => {
 
   return (
     <Container>
+      <Head>
+        <title>{meta.title}</title>
+      </Head>
       <Logo src={meta.logo} />
       <Heading typography={theme.typography.head['1.5'].regular} >{t('Coming soon')}...</Heading>
       <LinksList>

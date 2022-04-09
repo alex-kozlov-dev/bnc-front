@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { PostShort } from 'src/api/types'
 import { AspectRatioImage } from 'src/components/AspectRatioImage'
 import { Col, Row } from 'src/components/Grid'
+import { PageTitle } from 'src/components/PageTitle'
 import { Section } from 'src/components/Section'
 import { Text } from 'src/components/Typography'
 import { theme } from 'src/theme'
@@ -43,19 +44,22 @@ export const ProjectsList = ({ items }: ProjectListProps) => {
   const { t } = useTranslation()
 
   return (
-    <Section title={t('Our work')} size="wide">
-      <Row gap='xxl'>
-        {items.map(({ title, main_image_thumb, slug }, i) => (
-          <Col size={4} key={i}>
-            <Link href={`/projects/${slug}`} passHref>
-              <ItemLink>
-                <Img src={main_image_thumb} alt={title} aspectRatio={16 / 9}/>
-                <Text typography={theme.typography.head['1.5'].regular}>{title}</Text>
-              </ItemLink>
-            </Link>
-          </Col>
-        ))}
-      </Row>
-    </Section>
+    <>
+      <PageTitle title={t('Our work')} />
+      <Section title={t('Our work')} size="wide">
+        <Row gap='xxl'>
+          {items.map(({ title, main_image_thumb, slug }, i) => (
+            <Col size={4} key={i}>
+              <Link href={`/projects/${slug}`} passHref>
+                <ItemLink>
+                  <Img src={main_image_thumb} alt={title} aspectRatio={16 / 9}/>
+                  <Text typography={theme.typography.head['1.5'].regular}>{title}</Text>
+                </ItemLink>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </Section>
+    </>
   )
 }

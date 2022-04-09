@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { AspectRatioImage } from 'src/components/AspectRatioImage'
 import { Button } from 'src/components/Button'
 import { Col, Row } from 'src/components/Grid'
+import { PageTitle } from 'src/components/PageTitle'
 import { Rhytm } from 'src/components/Rhytm'
 import { Section } from 'src/components/Section'
 import { Heading, Text } from 'src/components/Typography'
@@ -32,6 +33,7 @@ export const Project = ({ project, otherProjects }: ProjectProps) => {
 
   return (
     <>
+      <PageTitle title={project.title} />
       <Section title={project.title} size="wide">
         <Row gap="xl">
           <Col size={9}>

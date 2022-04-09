@@ -6,6 +6,7 @@ import { isTruthy } from 'src/utils'
 import styled, { createGlobalStyle } from 'styled-components'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { MetaProvider } from './MetaProvider'
 import { PreviewModeBanner } from './PreviewModeBanner'
 import { TopHeader } from './TopHeader'
 
@@ -46,16 +47,18 @@ export const PageLayout: FC<LayoutProps> = ({ children, meta, previewMode }) => 
   const links = useNavigationLinks(meta)
 
   return (
-    <Container>
-      <GlobalStyles />
-      <TopHeader socialLinks={meta.social_links} />
-      <Header links={links} logo={meta.logo} />
-      <Main>
-        {children}
-      </Main>
-      <Footer logo={meta.logo_inverted} links={links} socialLinks={meta.social_links} text={meta.description} copyright={meta.copyright} />
-      {previewMode && <PreviewModeBanner />}
-    </Container>
+    <MetaProvider value={meta}>
+      <Container>
+        <GlobalStyles />
+        <TopHeader socialLinks={meta.social_links} />
+        <Header links={links} logo={meta.logo} />
+        <Main>
+          {children}
+        </Main>
+        <Footer logo={meta.logo_inverted} links={links} socialLinks={meta.social_links} text={meta.description} copyright={meta.copyright} />
+        {previewMode && <PreviewModeBanner />}
+      </Container>
+    </MetaProvider>
   )
 }
 

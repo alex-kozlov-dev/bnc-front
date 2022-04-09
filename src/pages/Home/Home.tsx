@@ -1,4 +1,5 @@
 import { Homepage } from 'src/api/types'
+import { PageTitle } from 'src/components/PageTitle'
 import { DonateCTASection } from 'src/components/sections/DonateCTASection'
 import { IconTextListSection } from 'src/components/sections/IconTextListSection'
 import { NumberedTextListSection } from 'src/components/sections/NumberedTextListSection'
@@ -15,6 +16,7 @@ export type HomeProps = {
 export const Home = ({ data }: HomeProps) => {
   return (
     <>
+      <PageTitle />
       <Splash title={data.splash_title} text={data.splash_text} />
       {data.page_sections.map((section, i) => {
         const variant = i % 2 ? 'white' : 'gray'
