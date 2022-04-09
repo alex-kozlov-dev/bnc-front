@@ -43,7 +43,6 @@ export type LayoutProps = {
 
 export const PageLayout: FC<LayoutProps> = ({ children, meta, previewMode }) => {
   const links = useNavigationLinks()
-  console.log(meta)
 
   return (
     <Container>
