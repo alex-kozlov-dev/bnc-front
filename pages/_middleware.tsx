@@ -7,7 +7,7 @@ export const middleware: NextMiddleware = (req) => {
   if (isMaintenance && req.nextUrl.pathname === '/') {
     const url = req.nextUrl.clone()
     url.pathname = '/coming-soon'
-    return NextResponse.rewrite(url)
+    return NextResponse.redirect(url)
   }
 
   return NextResponse.next()
