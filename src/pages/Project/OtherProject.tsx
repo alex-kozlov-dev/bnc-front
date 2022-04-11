@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { PostShort } from 'src/api/types'
 import { AspectRatioImage } from 'src/components/AspectRatioImage'
 import { Rhytm } from 'src/components/Rhytm'
 import { Text } from 'src/components/Typography'
@@ -19,18 +20,14 @@ const ProjectLink = styled.a`
   }
 `
 
-export type OtherProjectProps = {
-  title: string;
-  imageUrl: string;
-  slug: string;
-}
+export type OtherProjectProps = PostShort
 
-export const OtherProject = ({ title, imageUrl, slug }: OtherProjectProps) => {
+export const OtherProject = ({ title, main_image_thumb, slug }: OtherProjectProps) => {
   return (
-    <Link href={`/projects/${slug}`} passHref>
+    <Link href={`/our-work/${slug}`} passHref>
       <ProjectLink>
         <Rhytm margin={0.5}>
-          <ProjectImage src={imageUrl} alt={title} aspectRatio={16 / 9} />
+          <ProjectImage src={main_image_thumb} alt={title} aspectRatio={16 / 9} />
           <Text typography={theme.typography.text[1].bold} align="center">{title}</Text>
         </Rhytm>
       </ProjectLink>

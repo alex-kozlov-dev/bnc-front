@@ -1,4 +1,4 @@
-import { mock } from 'mock/mock'
+import { createApi } from 'src/api'
 import { withLayout } from 'src/components/PageLayout'
 import { createStaticPaths, getSharedData, GetStaticProps } from 'src/nextHelpers'
 import { Project, ProjectProps } from 'src/pages/Project'
@@ -8,30 +8,34 @@ type Params = {
 }
 
 export const getStaticProps: GetStaticProps<ProjectProps, Params> = async (ctx) => {
-  const projects = mock[ctx.locale].projects.items
+  const api = createApi(ctx)
 
-  const project = projects.find(({ slug }) => slug === ctx.params.slug)
+  const response = await api.post(ctx.params.slug).catch(() => null)
 
-  if (!project) {
+  if (!response) {
     return {
       notFound: true
     }
   }
 
-  const otherProjects = projects.filter(({ slug }) => slug !== ctx.params.slug).slice(0, 3)
-
   return ({
     props: {
       ...(await getSharedData(ctx)),
-      project,
-      otherProjects
+      post: response.post,
+      otherPosts: response.other_posts
     }
   })
 }
 
-export const getStaticPaths = createStaticPaths<Params>(() => ({
-  paths: mock.en.projects.items.map(({ slug }) => ({ params: { slug } })),
-  fallback: false
-}))
+export const getStaticPaths = createStaticPaths<Params>(async () => {
+  const api = createApi()
+
+  const posts = await api.posts()
+
+  return {
+    paths: posts.map(({ slug }) => ({ params: { slug } })),
+    fallback: true
+  }
+})
 
 export default withLayout(Project)

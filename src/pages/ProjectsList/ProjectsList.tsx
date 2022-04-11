@@ -31,7 +31,7 @@ const ItemLink = styled.a`
   &:hover ${Img} {
     ${theme.shadow[3]}
     img {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   }
 `
@@ -50,7 +50,7 @@ export const ProjectsList = ({ items }: ProjectListProps) => {
         <Row gap='xxl'>
           {items.map(({ title, main_image_thumb, slug }, i) => (
             <Col size={4} key={i}>
-              <Link href={`/projects/${slug}`} passHref>
+              <Link href={`/our-work/${slug}`} passHref>
                 <ItemLink>
                   <Img src={main_image_thumb} alt={title} aspectRatio={16 / 9}/>
                   <Text typography={theme.typography.head['1.5'].regular}>{title}</Text>

@@ -87,9 +87,13 @@ export type PostShort = {
   main_image_thumb: string;
 }
 
-export type PostFull = PostShort & {
+export type PostFull = {
+  id: number;
+  title: string;
+  text: string;
   main_image: string;
-  images: { id: number; src: string; thumb: string; alt?: string; }[]
+  main_image_thumb: string;
+  images: { id: number; src: string; thumb: string; }[]
 }
 
 export type PostResponse = {
