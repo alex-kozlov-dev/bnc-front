@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { Col, Row } from '../Grid'
 import { Rhytm } from '../Rhytm'
 import { Section, SectionProps } from '../Section'
-import { Heading, Text } from '../Typography'
+import { Heading } from '../Typography'
+import { Wysiwyg } from '../Wysiwyg'
 
 const Image = styled.img`
   display: block;
@@ -27,9 +28,7 @@ export const TextImageSection = ({ data, ...props }: Props) => {
             <Heading>
               {title}
             </Heading>
-            <Text>
-              {text}
-            </Text>
+            <Wysiwyg content={text} />
           </Rhytm>
         </Col>
         <Col size={6}>

@@ -113,7 +113,8 @@ export type CryptoPaymentDetail = {
   wallet: string;
 }
 
-export type PaymentDetailsResponse = {
+export type Payment = {
+  liqpay_link?: string;
   payment_details: PaymentDetail[];
   crypto_payment_details: CryptoPaymentDetail[];
 }

@@ -7,6 +7,7 @@ import { Icon } from '../Icon'
 import { Rhytm } from '../Rhytm'
 import { Section, SectionProps } from '../Section'
 import { Text } from '../Typography'
+import { Wysiwyg } from '../Wysiwyg'
 
 const ItemContainer = styled.div`
   padding: ${theme.spacing.l};
@@ -31,10 +32,10 @@ const Answer = styled.div<{ open?: boolean }>`
   overflow: hidden;
   transition: max-height 0.2s;
   max-height: ${({ open }) => open ? '800px' : '0'};
+`
 
-  > ${Text} {
-    padding-top: 1.5em;
-  }
+const Content = styled(Wysiwyg)`
+  padding-top: 1.5em;
 `
 
 type Item = QAPageSection['questions'][0]
@@ -50,9 +51,7 @@ const QAItem = ({ question, answer }: Item) => {
         <Icon icon="fa-chevron-right" rotate={open ? 90 : 0} />
       </Question>
       <Answer open={open}>
-        <Text>
-          {answer}
-        </Text>
+        <Content content={answer} />
       </Answer>
     </ItemContainer>
   )

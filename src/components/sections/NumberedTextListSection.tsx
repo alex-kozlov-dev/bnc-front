@@ -1,15 +1,9 @@
 import { TextListPageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
+import { Col, Row } from '../Grid'
 import { Section, SectionProps } from '../Section'
-import { Text } from '../Typography'
-
-const Container = styled.div`
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: ${theme.spacing.m};
-`
+import { Wysiwyg } from '../Wysiwyg'
 
 const Item = styled.div<{ number: number }>`
   position: relative;
@@ -33,7 +27,7 @@ const Item = styled.div<{ number: number }>`
   }
 `
 
-const ItemText = styled(Text)`
+const ItemText = styled(Wysiwyg)`
   position: relative;
   z-index: 2;
 `
@@ -45,13 +39,15 @@ type Props = SectionProps & {
 export const NumberedTextListSection = ({ data, ...props }: Props) => {
   return (
     <Section size="wide" {...props} >
-      <Container>
+      <Row justify='center'>
         {data.text_items.map(({ id, text }, i) => (
-          <Item key={id} number={i + 1}>
-            <ItemText>{text}</ItemText>
-          </Item>
+          <Col key={id} size={3}>
+            <Item number={i + 1}>
+              <ItemText content={text} />
+            </Item>
+          </Col>
         ))}
-      </Container>
+      </Row>
     </Section>
   )
 }

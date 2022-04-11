@@ -1,9 +1,13 @@
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { IconTextListPageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
+import { Col, Row } from '../Grid'
 import { Rhytm } from '../Rhytm'
 import { Section, SectionProps } from '../Section'
-import { Heading, Text } from '../Typography'
+import { Heading } from '../Typography'
+import { Wysiwyg } from '../Wysiwyg'
 
 const Container = styled.div`
   display: grid;
@@ -46,6 +50,34 @@ const Icon = styled.img`
   object-fit: contain;
 `
 
+const MoreBtn = styled.button`
+  ${theme.reset.button}
+  ${theme.typography.text[1].regular}
+  color: ${theme.colors.blue}
+`
+
+const MoreContent = styled.div<{ open: boolean }>`
+  overflow: hidden;
+  max-height: ${({ open }) => open ? '100vh' : 0};
+  transition: max-height 0.5s;
+`
+
+const More = ({ content }: { content: string }) => {
+  const [open, setOpen] = useState(false)
+  const { t } = useTranslation()
+
+  return (
+    <>
+      <MoreBtn onClick={() => setOpen(!open)}>
+        {open ? t('less') : t('more')} {open ? '▴' : '▾'}
+      </MoreBtn>
+      <MoreContent open={open}>
+        <Wysiwyg content={content} />
+      </MoreContent>
+    </>
+  )
+}
+
 type Props = SectionProps & {
   data: IconTextListPageSection;
 }
@@ -54,22 +86,24 @@ export const IconTextListSection = ({ data, ...props }: Props) => {
   return (
     <Section size="wide" {...props}>
       <Container>
-        {data.icon_text_items.map(({ icon, title, summary, details }, i) => (
-          <Item key={i}>
-            <Rhytm>
-              <IconContainer>
-                <Icon src={icon} alt={title} />
-              </IconContainer>
-              <Heading typography={theme.typography.head[1.5].regular} align="center">
-                {title}
-              </Heading>
-              <Text>
-                {summary}
-                {details}
-              </Text>
-            </Rhytm>
-          </Item>
-        ))}
+        <Row justify='center'>
+          {data.icon_text_items.map(({ icon, title, summary, details }, i) => (
+            <Col key={i} size={4}>
+              <Item>
+                <Rhytm>
+                  <IconContainer>
+                    <Icon src={icon} alt={title} />
+                  </IconContainer>
+                  <Heading typography={theme.typography.head[1.5].regular} align="center">
+                    {title}
+                  </Heading>
+                  <Wysiwyg content={summary}/>
+                </Rhytm>
+                {details && <More content={details} />}
+              </Item>
+            </Col>
+          ))}
+        </Row>
       </Container>
     </Section>
   )
