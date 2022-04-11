@@ -34,7 +34,7 @@ export const getStaticPaths = createStaticPaths<Params>(async () => {
 
   return {
     paths: posts.map(({ slug }) => ({ params: { slug } })),
-    fallback: true
+    fallback: false
   }
 })
 
