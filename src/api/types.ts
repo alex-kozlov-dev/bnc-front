@@ -107,9 +107,11 @@ export type PaymentDetail = {
   text: string;
 }
 
+export type CryptoType = 'btc' | 'eth' | 'bch' | 'ltc' | 'usdt'
+
 export type CryptoPaymentDetail = {
   id: number;
-  crypto_type: 'btc' | 'etc' | 'bch' | 'ltc' | 'usdt';
+  crypto_type: CryptoType;
   wallet: string;
 }
 

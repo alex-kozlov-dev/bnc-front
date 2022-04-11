@@ -7,6 +7,7 @@ import { Rhytm } from 'src/components/Rhytm'
 import { Content } from 'src/components/Content'
 import { Col, Row } from 'src/components/Grid'
 import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
 
 const Container = styled.div`
   position: relative;
@@ -45,9 +46,11 @@ export const Splash = ({ title, text }: Props) => {
               <Text>
                 {text}
               </Text>
-              <Button>
-                {t('Donate now')}
-              </Button>
+              <Link href="/donate" passHref>
+                <Button as="a">
+                  {t('Donate now')}
+                </Button>
+              </Link>
             </Rhytm>
           </Col>
           <Col size={6}>

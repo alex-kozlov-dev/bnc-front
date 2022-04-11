@@ -22,11 +22,14 @@ export type SectionProps = {
   title?: string;
   variant?: Variant;
   size?: ContentSize;
+  className?: string;
 }
 
-export const Section: FC<SectionProps> = ({ variant = 'white', size = 'narrow', title, children }) => {
+export const alternateVariant = (n: number) => n % 2 ? 'gray' : 'white'
+
+export const Section: FC<SectionProps> = ({ variant = 'white', size = 'narrow', title, className, children }) => {
   return (
-    <Container variant={variant}>
+    <Container variant={variant} className={className}>
       {title && <Title align="center">{title}</Title>}
       <Content size={size}>
         {children}

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import { DonateCtaPageSection } from 'src/api/types'
 import { theme } from 'src/theme'
@@ -26,9 +27,11 @@ export const DonateCTASection = ({ data, ...props }: Props) => {
         <Heading typography={theme.typography.head[2].regular}>
           {data.cta}
         </Heading>
-        <Button variant="primary-inverse">
-          {t('Donate now')}
-        </Button>
+        <Link href="/donate" passHref>
+          <Button as="a" variant="primary-inverse">
+            {t('Donate now')}
+          </Button>
+        </Link>
       </Container>
     </Section>
   )

@@ -113,9 +113,11 @@ export const Header = ({ links, logo }: Props) => {
           ))}
         </MenuList>
       </nav>
-      <Button>
-        {t('Donate now')}
-      </Button>
+      <Link href="/donate" passHref>
+        <Button as="a">
+          {t('Donate now')}
+        </Button>
+      </Link>
     </Container>
   )
 }
