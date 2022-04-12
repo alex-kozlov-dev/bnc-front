@@ -10,5 +10,15 @@
   "more": "more",
   "Our partners": "Our partners",
   "Q&A": "Q&A",
-  "Coming soon": "Coming soon"
+  "Coming soon": "Coming soon",
+  "Send message": "Send message",
+  "Thank you for feedback!": "Thank you for feedback!",
+  "Something gone wrong": {
+    " Try again later": "Something gone wrong. Try again later"
+  },
+  "click to copy": "click to copy",
+  "Copied": "Copied",
+  "Visa/Mastercard": "Visa/Mastercard",
+  "Donate with your card": "Donate with your card",
+  "Crypto": "Crypto"
 }

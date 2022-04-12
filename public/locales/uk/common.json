@@ -10,5 +10,15 @@
   "more": "більше",
   "Our partners": "Наші партнери",
   "Q&A": "Питання та відповіді",
-  "Coming soon": "Сайт в розробці"
+  "Coming soon": "Сайт в розробці",
+  "Send message": "Відправити",
+  "Thank you for feedback!": "Дякуємо за повідомлення!",
+  "Something gone wrong": {
+    " Try again later": "Щось пішло не так. Спробуйте пізніше"
+  },
+  "click to copy": "натисніть, щоб скопіювати",
+  "Copied": "Скопійовано",
+  "Visa/Mastercard": "Visa/Mastercard",
+  "Donate with your card": "Зробити пожертву з карти",
+  "Crypto": "Криптовалюта"
 }
