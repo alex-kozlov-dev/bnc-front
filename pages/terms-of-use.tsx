@@ -14,8 +14,6 @@ export const getStaticProps: GetStaticProps<Props> = async ctx => {
 
   const [shared, legal] = await Promise.all([getSharedData(ctx), api.legal()])
 
-  console.log(legal)
-
   return {
     props: {
       ...shared,
@@ -27,7 +25,6 @@ export const getStaticProps: GetStaticProps<Props> = async ctx => {
 const TermsOfUse = ({ text }: Props) => {
   const { t } = useTranslation()
 
-  console.log(text)
   return (
     <Section size="narrow" title={t('Terms of use')}>
       <Wysiwyg content={text} />
