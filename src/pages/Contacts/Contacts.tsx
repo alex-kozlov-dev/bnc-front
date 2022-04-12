@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Meta } from 'src/api/types'
 import { Button } from 'src/components/Button'
 import { Col, Row } from 'src/components/Grid'
+import { PageTitle } from 'src/components/PageTitle'
 import { Rhytm } from 'src/components/Rhytm'
 import { Section } from 'src/components/Section'
 import { Wysiwyg } from 'src/components/Wysiwyg'
@@ -79,32 +80,35 @@ export const ContactsPage = ({ meta }: ContactsPageProps) => {
   const status = useFeedbackStatus()
 
   return (
-    <Section size="wide" title={t('Contacts')}>
-      <Row>
-        <Col size={6}>
-          <Form action='/api/feedback' method='POST'>
-            <label htmlFor='email'>Email</label>
-            <Input name='email' type='email' placeholder="email@address.com" required />
-            <label htmlFor='message'>Message</label>
-            <Input as='textarea' name='message' placeholder="Your message..." required />
-            <Button type='submit'>
-              {t('Send message')}
-            </Button>
-            {status && (
-              <Status success={status === 'success'}>
-                {status === 'success' ? t('Thank you for feedback!') : t('Something gone wrong. Try again later')}
-              </Status>
-            )}
-          </Form>
-        </Col>
-        <Col size={6}>
-          <Rhytm>
-            <Anchor href={`tel:${sanitazeTel(meta.phone_number)}`}>{meta.phone_number}</Anchor>
-            <Anchor href={`mailto:${meta.email}`}>{meta.email}</Anchor>
-            <Wysiwyg content={meta.address} />
-          </Rhytm>
-        </Col>
-      </Row>
-    </Section>
+    <>
+      <PageTitle title={t('Contacts')} />
+      <Section size="wide" title={t('Contacts')}>
+        <Row>
+          <Col size={6}>
+            <Form action='/api/feedback' method='POST'>
+              <label htmlFor='email'>Email</label>
+              <Input name='email' type='email' placeholder="email@address.com" required />
+              <label htmlFor='message'>Message</label>
+              <Input as='textarea' name='message' placeholder="Your message..." required />
+              <Button type='submit'>
+                {t('Send message')}
+              </Button>
+              {status && (
+                <Status success={status === 'success'}>
+                  {status === 'success' ? t('Thank you for feedback!') : t('Something gone wrong. Try again later')}
+                </Status>
+              )}
+            </Form>
+          </Col>
+          <Col size={6}>
+            <Rhytm>
+              <Anchor href={`tel:${sanitazeTel(meta.phone_number)}`}>{meta.phone_number}</Anchor>
+              <Anchor href={`mailto:${meta.email}`}>{meta.email}</Anchor>
+              <Wysiwyg content={meta.address} />
+            </Rhytm>
+          </Col>
+        </Row>
+      </Section>
+    </>
   )
 }

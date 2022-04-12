@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { File } from 'src/api/types'
 import { Icon } from 'src/components/Icon'
+import { PageTitle } from 'src/components/PageTitle'
 import { Rhytm } from 'src/components/Rhytm'
 import { Section } from 'src/components/Section'
 import { theme } from 'src/theme'
@@ -33,14 +34,17 @@ export type DocumentsPageProps = {
 export const DocumentsPage = ({ files }: DocumentsPageProps) => {
   const { t } = useTranslation()
   return (
-    <Section size="narrow" title={t('Documents')}>
-      <Rhytm>
-        {files.map(file => (
-          <FileContainer key={file.id} href={file.src} target="_blank" download>
-            <FileIcon /> {file.title}
-          </FileContainer>
-        ))}
-      </Rhytm>
-    </Section>
+    <>
+      <PageTitle title={t('Documents')} />
+      <Section size="narrow" title={t('Documents')}>
+        <Rhytm>
+          {files.map(file => (
+            <FileContainer key={file.id} href={file.src} target="_blank" download>
+              <FileIcon /> {file.title}
+            </FileContainer>
+          ))}
+        </Rhytm>
+      </Section>
+    </>
   )
 }

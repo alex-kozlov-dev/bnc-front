@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Payment } from 'src/api/types'
 import { Button } from 'src/components/Button'
 import { Col, Row } from 'src/components/Grid'
+import { PageTitle } from 'src/components/PageTitle'
 import { alternateVariant, Section } from 'src/components/Section'
 import { Wysiwyg } from 'src/components/Wysiwyg'
 import styled from 'styled-components'
@@ -22,6 +23,7 @@ export const DonatePage = ({ payment }: DonatePageProps) => {
 
   return (
     <>
+      <PageTitle title={t('Donate')} />
       {payment.liqpay_link && (
         <LiqpaySection title={t('Visa/Mastercard')}>
           <Button as="a" target="_blank" href={payment.liqpay_link}>
