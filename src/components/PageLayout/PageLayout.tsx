@@ -33,7 +33,7 @@ const useNavigationLinks = (meta: Meta) => {
   return useMemo(() => [
     { title: t('Home'), href: '/' },
     meta.posts_exists && { title: t('Our work'), href: '/our-work' },
-    meta.files_exists && { title: t('Documents'), href: '#' },
+    meta.files_exists && { title: t('Documents'), href: '/documents' },
     { title: t('Contacts'), href: '/contacts' }
   ].filter(isTruthy), [meta.files_exists, meta.posts_exists, t])
 }
