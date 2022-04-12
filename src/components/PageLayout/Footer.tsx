@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { SocialLink } from 'src/api/types'
+import { Meta } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Content } from '../Content'
@@ -7,6 +7,7 @@ import { Col, Row } from '../Grid'
 import { Rhytm } from '../Rhytm'
 import { Text } from '../Typography'
 import { SocialLinks } from './SocialLinks'
+import { useNavigationLinks } from './useNavigationLinks'
 
 const LogoLink = styled.a`
   height: 48px;
@@ -58,17 +59,11 @@ const MenuLink = styled.a`
 `
 
 type Props = {
-  logo: string;
-  text: string;
-  copyright: string;
-  socialLinks: SocialLink[];
-  links: {
-    title: string;
-    href: string;
-  }[]
+  meta: Meta;
 }
 
-export const Footer = ({ logo, links, socialLinks, text, copyright }: Props) => {
+export const Footer = ({ meta }: Props) => {
+  const links = useNavigationLinks(meta, true)
   return (
     <Container>
       <Content>
@@ -78,11 +73,11 @@ export const Footer = ({ logo, links, socialLinks, text, copyright }: Props) => 
               <Rhytm margin={0.8}>
                 <Link href="/" passHref>
                   <LogoLink>
-                    <LogoImg src={logo} />
+                    <LogoImg src={meta.logo_inverted} />
                   </LogoLink>
                 </Link>
                 <Text typography={theme.typography.text['0.8'].regular}>
-                  {text}
+                  {meta.description}
                 </Text>
               </Rhytm>
             </Col>
@@ -102,9 +97,9 @@ export const Footer = ({ logo, links, socialLinks, text, copyright }: Props) => 
               </Nav>
             </Col>
           </Row>
-          <SocialLinks links={socialLinks} />
+          <SocialLinks links={meta.social_links} />
           <Text typography={theme.typography.text['0.8'].regular} align="center">
-            {copyright}
+            {meta.copyright}
           </Text>
         </Rhytm>
       </Content>

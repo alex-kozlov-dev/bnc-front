@@ -78,6 +78,8 @@ export type Meta = {
   copyright: string;
   posts_exists: boolean;
   files_exists: boolean;
+  privacy_policy_enabled: boolean;
+  terms_of_use_enabled: boolean;
 }
 
 export type PostShort = {
@@ -125,4 +127,9 @@ export type File = {
   id: number;
   src: string;
   title: string;
+}
+
+export type Legal = {
+  terms_of_use?: string;
+  privacy_policy?: string;
 }

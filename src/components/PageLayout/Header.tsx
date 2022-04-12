@@ -5,6 +5,8 @@ import { useEffect, useMemo, useState } from 'react'
 import throttle from 'lodash/throttle'
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
+import { Meta } from 'src/api/types'
+import { useNavigationLinks } from './useNavigationLinks'
 
 const Logo = styled.img`
   height: 100%;
@@ -82,22 +84,20 @@ const useScrolledToTop = () => {
 }
 
 type Props = {
-  logo: string;
-  links: {
-    title: string;
-    href: string;
-  }[]
+  meta: Meta;
 }
 
-export const Header = ({ links, logo }: Props) => {
+export const Header = ({ meta }: Props) => {
   const scrolledToTop = useScrolledToTop()
   const { t } = useTranslation()
+
+  const links = useNavigationLinks(meta, false)
 
   return (
     <Container transparent={scrolledToTop}>
       <Link href="/" passHref>
         <LogoLink>
-          <Logo src={logo} />
+          <Logo src={meta.logo} />
         </LogoLink>
       </Link>
       <nav>

@@ -1,8 +1,6 @@
-import { ComponentType, FC, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
+import { ComponentType, FC } from 'react'
 import { Meta } from 'src/api/types'
 import { theme } from 'src/theme'
-import { isTruthy } from 'src/utils'
 import styled, { createGlobalStyle } from 'styled-components'
 import { Footer } from './Footer'
 import { Header } from './Header'
@@ -27,35 +25,22 @@ const Main = styled.main`
   flex: 1;
 `
 
-const useNavigationLinks = (meta: Meta) => {
-  const { t } = useTranslation()
-
-  return useMemo(() => [
-    { title: t('Home'), href: '/' },
-    meta.posts_exists && { title: t('Our work'), href: '/our-work' },
-    meta.files_exists && { title: t('Documents'), href: '/documents' },
-    { title: t('Contacts'), href: '/contacts' }
-  ].filter(isTruthy), [meta.files_exists, meta.posts_exists, t])
-}
-
 export type LayoutProps = {
   meta: Meta;
   previewMode: boolean;
 }
 
 export const PageLayout: FC<LayoutProps> = ({ children, meta, previewMode }) => {
-  const links = useNavigationLinks(meta)
-
   return (
     <MetaProvider value={meta}>
       <Container>
         <GlobalStyles />
         <TopHeader socialLinks={meta.social_links} />
-        <Header links={links} logo={meta.logo} />
+        <Header meta={meta} />
         <Main>
           {children}
         </Main>
-        <Footer logo={meta.logo_inverted} links={links} socialLinks={meta.social_links} text={meta.description} copyright={meta.copyright} />
+        <Footer meta={meta} />
         {previewMode && <PreviewModeBanner />}
       </Container>
     </MetaProvider>
