@@ -158,6 +158,11 @@ export const theme = {
     `,
     text: `
       margin: 0;
+    `,
+    input: `
+      background: none;
+      border: none;
+      outline: none;
     `
   }
 }

@@ -14,6 +14,7 @@
     "@types/qrcode-svg": "^1.1.1",
     "@types/react-copy-to-clipboard": "^5.0.2",
     "@types/react-image-gallery": "^1.0.5",
+    "emailjs": "^3.8.0",
     "i18next-parser": "^6.0.1",
     "lodash": "^4.17.21",
     "next": "12.1.0",

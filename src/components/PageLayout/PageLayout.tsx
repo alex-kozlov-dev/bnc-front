@@ -34,7 +34,7 @@ const useNavigationLinks = (meta: Meta) => {
     { title: t('Home'), href: '/' },
     meta.posts_exists && { title: t('Our work'), href: '/our-work' },
     meta.files_exists && { title: t('Documents'), href: '#' },
-    { title: t('Contacts'), href: '#' }
+    { title: t('Contacts'), href: '/contacts' }
   ].filter(isTruthy), [meta.files_exists, meta.posts_exists, t])
 }
 
