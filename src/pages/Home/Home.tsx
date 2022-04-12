@@ -17,7 +17,7 @@ export const Home = ({ data }: HomeProps) => {
   return (
     <>
       <PageTitle />
-      <Splash title={data.splash_title} text={data.splash_text} />
+      <Splash title={data.splash_title} text={data.splash_text} image={data.splash_image} />
       {data.page_sections.map((section, i) => {
         const variant = i % 2 ? 'white' : 'gray'
 

@@ -1,7 +1,7 @@
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from 'src/components/Button'
-import { Ukraine } from './Ukraine'
+// import { Ukraine } from './Ukraine'
 import { Heading, Text } from 'src/components/Typography'
 import { Rhytm } from 'src/components/Rhytm'
 import { Content } from 'src/components/Content'
@@ -26,12 +26,18 @@ const Title = styled(Heading)`
   line-height: 1;
 `
 
+const Image = styled.img`
+  display: block;
+  width: 100%;
+`
+
 type Props = {
   title: string;
   text: string;
+  image: string;
 }
 
-export const Splash = ({ title, text }: Props) => {
+export const Splash = ({ title, text, image }: Props) => {
   const { t } = useTranslation()
 
   return (
@@ -54,7 +60,7 @@ export const Splash = ({ title, text }: Props) => {
             </Rhytm>
           </Col>
           <Col size={6}>
-            <Ukraine />
+            <Image src={image} alt={title} />
           </Col>
         </Row>
       </Content>
