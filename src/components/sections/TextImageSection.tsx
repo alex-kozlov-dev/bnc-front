@@ -2,9 +2,7 @@ import { TextImagePageSection } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Col, Row } from '../Grid'
-import { Rhytm } from '../Rhytm'
 import { Section, SectionProps } from '../Section'
-import { Heading } from '../Typography'
 import { Wysiwyg } from '../Wysiwyg'
 
 const Image = styled.img`
@@ -13,28 +11,27 @@ const Image = styled.img`
   border-radius: ${theme.borderRadius.s};
 `
 
+const RowS = styled(Row)<{ reverse?: boolean }>`
+  flex-direction: ${({ reverse }) => reverse ? 'row-reverse' : 'row'};
+`
+
 type Props = SectionProps & {
   data: TextImagePageSection;
 };
 
 export const TextImageSection = ({ data, ...props }: Props) => {
-  const { title, text, image } = data
+  const { title, text, image, image_on_the_left } = data
 
   return (
-    <Section size="wide" {...props}>
-      <Row>
+    <Section size="wide" {...props} title={title}>
+      <RowS reverse={image_on_the_left}>
         <Col size={6}>
-          <Rhytm>
-            <Heading>
-              {title}
-            </Heading>
-            <Wysiwyg content={text} />
-          </Rhytm>
+          <Wysiwyg content={text} />
         </Col>
         <Col size={6}>
           <Image src={image} alt={title} />
         </Col>
-      </Row>
+      </RowS>
     </Section>
   )
 }

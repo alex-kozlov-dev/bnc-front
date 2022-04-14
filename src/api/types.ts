@@ -10,6 +10,7 @@ export type TextImagePageSection = {
   section_type: 'text_image';
   title: string;
   text: string;
+  image_on_the_left: boolean;
   image: string;
 }
 
