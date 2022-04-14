@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: ${theme.colors.gray[8]};
-    font-family: "Raleway", -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-family: ${theme.fonts.text};
     font-size: 16px;
   }
 `

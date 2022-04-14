@@ -1,5 +1,7 @@
-const raleway = '"Raleway", -apple-system, "Helvetica Neue", Arial, sans-serif'
-const montserat = '"Montserat", -apple-system, "Helvetica Neue", Arial, sans-serif'
+const fonts = {
+  heading: "'Montserrat', -apple-system, 'Helvetica Neue', Arial, sans-serif",
+  text: "'Raleway', -apple-system, 'Helvetica Neue', Arial, sans-serif"
+}
 
 export const theme = {
   colors: {
@@ -45,17 +47,18 @@ export const theme = {
     2: 'box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;',
     3: 'box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'
   },
+  fonts,
   typography: {
     head: {
       1.5: {
         regular: `
-          font-family: ${montserat};
+          font-family: ${fonts.heading};
           font-size: 1.5em;
           line-height: 1;
           font-weight: 900;
         `,
         italic: `
-          font-family: ${montserat};
+          font-family: ${fonts.heading};
           font-size: 1.5em;
           line-height: 1;
           font-weight: 900;
@@ -64,13 +67,13 @@ export const theme = {
       },
       2: {
         regular: `
-          font-family: ${montserat};
+          font-family: ${fonts.heading};
           font-size: 2em;
           line-height: 1;
           font-weight: 900;
         `,
         italic: `
-          font-family: ${montserat};
+          font-family: ${fonts.heading};
           font-size: 2em;
           line-height: 1;
           font-weight: 900;
@@ -79,13 +82,13 @@ export const theme = {
       },
       2.5: {
         regular: `
-          font-family: ${montserat};
+          font-family: ${fonts.heading};
           font-size: 2.5em;
           line-height: 1;
           font-weight: 900;
         `,
         italic: `
-          font-family: ${montserat};
+          font-family: ${fonts.heading};
           font-size: 2.5em;
           line-height: 1;
           font-weight: 900;
@@ -94,13 +97,13 @@ export const theme = {
       },
       5: {
         regular: `
-          font-family: ${montserat};
+          font-family: ${fonts.heading};
           font-size: 5em;
           line-height: 1;
           font-weight: 900;
         `,
         italic: `
-          font-family: ${montserat};
+          font-family: ${fonts.heading};
           font-size: 5em;
           line-height: 1;
           font-weight: 900;
@@ -111,25 +114,25 @@ export const theme = {
     text: {
       0.8: {
         regular: `
-          font-family: ${raleway};
+          font-family: ${fonts.text};
           font-size: 0.8em;
           line-height: 1.3;
         `
       },
       1: {
         regular: `
-          font-family: ${raleway};
+          font-family: ${fonts.text};
           font-size: 1em;
           line-height: 1.6;
         `,
         bold: `
-          font-family: ${raleway};
+          font-family: ${fonts.text};
           font-size: 1em;
           line-height: 1.6;
           font-weight: bold;
         `,
         italic: `
-          font-family: ${raleway};
+          font-family: ${fonts.text};
           font-size: 1em;
           line-height: 1.6;
           font-style: italic;
