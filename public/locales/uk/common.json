@@ -9,10 +9,6 @@
   "Documents": "Документи",
   "Contacts": "Контакти",
   "Privacy policy": "Privacy policy",
-  "less": "меньше",
-  "more": "більше",
-  "Our partners": "Наші партнери",
-  "Q&A": "Питання та відповіді",
   "Coming soon": "Сайт в розробці",
   "Send message": "Відправити",
   "Thank you for feedback!": "Дякуємо за повідомлення!",
@@ -21,7 +17,12 @@
   },
   "click to copy": "натисніть, щоб скопіювати",
   "Copied": "Скопійовано",
+  "Donate": "Допомогти",
   "Visa/Mastercard": "Visa/Mastercard",
   "Donate with your card": "Зробити пожертву з карти",
-  "Crypto": "Криптовалюта"
+  "Crypto": "Криптовалюта",
+  "Help in the <1>wartime</1>": "Допомога у <1>воєнний період</1>",
+  "Help in the <1>postwar</1> period": "Допомога у <1>повоєнний час</1>",
+  "Our <1>partners</1>": "Наші <1>партнери</1>",
+  "<0>Who</0> we are helping?": "<0>Кому</0> ми допомогаємо?"
 }

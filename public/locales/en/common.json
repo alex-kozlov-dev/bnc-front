@@ -9,10 +9,6 @@
   "Documents": "Documents",
   "Contacts": "Contacts",
   "Privacy policy": "Privacy policy",
-  "less": "less",
-  "more": "more",
-  "Our partners": "Our partners",
-  "Q&A": "Q&A",
   "Coming soon": "Coming soon",
   "Send message": "Send message",
   "Thank you for feedback!": "Thank you for feedback!",
@@ -21,7 +17,12 @@
   },
   "click to copy": "click to copy",
   "Copied": "Copied",
+  "Donate": "Donate",
   "Visa/Mastercard": "Visa/Mastercard",
   "Donate with your card": "Donate with your card",
-  "Crypto": "Crypto"
+  "Crypto": "Crypto",
+  "Help in the <1>wartime</1>": "Help in the <1>wartime</1>",
+  "Help in the <1>postwar</1> period": "Help in the <1>postwar</1> period",
+  "Our <1>partners</1>": "Our <1>partners</1>",
+  "<0>Who</0> we are helping?": "<0>Who</0> we are helping?"
 }
