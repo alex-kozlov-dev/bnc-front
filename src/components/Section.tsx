@@ -6,9 +6,12 @@ import { Heading } from './Typography'
 
 type Variant = 'white' | 'gray' | 'black';
 
-const Container = styled.section<{ variant: Variant }>`
-  background-color: ${({ variant }) => variant === 'black' ? theme.colors.gray[8] : variant === 'gray' ? theme.colors.gray[0] : 'unset'};
-  color: ${({ variant }) => variant === 'black' ? theme.colors.white : 'unset'};
+export const Section = styled.section<{ variant?: Variant }>`
+  background-color: ${({ variant = 'white' }) => variant === 'black' ? theme.colors.gray[8] : variant === 'gray' ? theme.colors.gray[0] : 'unset'};
+  color: ${({ variant = 'white' }) => variant === 'black' ? theme.colors.white : 'unset'};
+`
+
+const Container = styled(Section)`
   padding: ${theme.spacing.m} 0;
 `
 
@@ -27,7 +30,7 @@ export type SectionProps = {
 
 export const alternateVariant = (n: number) => n % 2 ? 'gray' : 'white'
 
-export const Section: FC<SectionProps> = ({ variant = 'white', size = 'narrow', title, className, children }) => {
+export const DeprecatedSection: FC<SectionProps> = ({ variant = 'white', size = 'narrow', title, className, children }) => {
   return (
     <Container variant={variant} className={className}>
       {title && <Title align="center">{title}</Title>}

@@ -4,7 +4,7 @@ import { PostShort } from 'src/api/types'
 import { AspectRatioImage } from 'src/components/AspectRatioImage'
 import { Col, Row } from 'src/components/Grid'
 import { PageTitle } from 'src/components/PageTitle'
-import { Section } from 'src/components/Section'
+import { DeprecatedSection } from 'src/components/Section'
 import { Text } from 'src/components/Typography'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
@@ -46,7 +46,7 @@ export const ProjectsList = ({ items }: ProjectListProps) => {
   return (
     <>
       <PageTitle title={t('Our work')} />
-      <Section title={t('Our work')} size="wide">
+      <DeprecatedSection title={t('Our work')} size="wide">
         <Row gap='xxl'>
           {items.map(({ title, main_image_thumb, slug }, i) => (
             <Col size={4} key={i}>
@@ -59,7 +59,7 @@ export const ProjectsList = ({ items }: ProjectListProps) => {
             </Col>
           ))}
         </Row>
-      </Section>
+      </DeprecatedSection>
     </>
   )
 }

@@ -1,13 +1,14 @@
 import { Homepage } from 'src/api/types'
 import { PageTitle } from 'src/components/PageTitle'
-import { DonateCTASection } from 'src/components/sections/DonateCTASection'
-import { IconTextListSection } from 'src/components/sections/IconTextListSection'
-import { NumberedTextListSection } from 'src/components/sections/NumberedTextListSection'
-import { PartnersSection } from 'src/components/sections/PartnersSection'
-import { QASection } from 'src/components/sections/QASection'
-import { TextImageSection } from 'src/components/sections/TextImageSection'
-import { TextSection } from 'src/components/sections/TextSection'
+import { TextImageSection } from './TextImageSection'
+import { TextSection } from './TextSection'
 import { Splash } from './Splash'
+import { IconItemsImageSection } from './IconItemsImageSection'
+import { CTASection } from './CTASection'
+import { PartnersSection } from './PartnersSection'
+import { WhoWeHelpSection } from './WhoWeHelpSection'
+import { Trans } from 'react-i18next'
+import { Stroke } from 'src/components/Stroke/Stroke'
 
 export type HomeProps = {
   data: Homepage;
@@ -17,29 +18,40 @@ export const Home = ({ data }: HomeProps) => {
   return (
     <>
       <PageTitle />
-      <Splash title={data.splash_title} text={data.splash_text} image={data.splash_image} />
-      {data.page_sections.map((section, i) => {
-        const variant = i % 2 ? 'white' : 'gray'
-
-        switch (section.section_type) {
-          case 'text':
-            return <TextSection key={section.id} variant={variant} data={section} />
-          case 'text_image':
-            return <TextImageSection key={section.id} variant={variant} data={section} />
-          case 'donate_cta':
-            return <DonateCTASection key={section.id} data={section} />
-          case 'text_list':
-            return <NumberedTextListSection key={section.id} variant={variant} data={section} />
-          case 'partners':
-            return <PartnersSection key={section.id} variant={variant} data={section} />
-          case 'qa':
-            return <QASection key={section.id} variant={variant} data={section} />
-          case 'icon_text_list':
-            return <IconTextListSection key={section.id} variant={variant} data={section} />
-          default:
-            return null
-        }
-      })}
+      <Splash
+        title={data.splash_title}
+        text={data.splash_text}
+        image={data.splash_image}
+      />
+      <TextImageSection
+        text={data.intro_text}
+        image={data.intro_image}
+      />
+      <TextSection
+        text={data.intro_text_2}
+      />
+      <IconItemsImageSection
+        title={<Trans>Help in the <Stroke>wartime</Stroke></Trans>}
+        imageUrl={data.wartime_image}
+        items={data.wartime_items}
+        variant="gray"
+      />
+      <IconItemsImageSection
+        title={<Trans>Help in the <Stroke blue>postwar</Stroke> period</Trans>}
+        imageUrl={data.peacetime_image}
+        items={data.peacetime_items}
+        reversed
+      />
+      <CTASection cta={data.cta} />
+      <PartnersSection
+        partners={data.partners}
+      />
+      <WhoWeHelpSection
+        items={data.who_we_help}
+      />
+      <TextSection
+        text={data.outro_text}
+      />
     </>
   )
 }

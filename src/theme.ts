@@ -28,6 +28,17 @@ export const theme = {
     xl: '48px',
     xxl: '64px'
   },
+  layout: {
+    spacing: {
+      xs: '48px',
+      s: '64px',
+      m: '90px',
+      l: '118px'
+    },
+    width: {
+      wide: '1440px'
+    }
+  },
   sizes: {
     topHeader: '36px',
     header: '80px',
@@ -137,6 +148,14 @@ export const theme = {
           line-height: 1.6;
           font-style: italic;
         `
+      },
+      1.5: {
+        bold: `
+          font-family: ${fonts.text};
+          font-size: 1.5em;
+          line-height: 1.3;
+          font-weight: bold;
+        `
       }
     }
   },
@@ -168,4 +187,4 @@ export const theme = {
       outline: none;
     `
   }
-}
+} as const

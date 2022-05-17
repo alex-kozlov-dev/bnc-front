@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { GoogleFonts } from 'src/components/GoogleFonts'
 import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
@@ -35,7 +36,25 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
-          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Raleway:ital@0;1&display=block" rel="stylesheet"/>
+          <GoogleFonts
+            families={[
+              {
+                family: 'Montserrat',
+                styles: [
+                  { weight: 800 },
+                  { weight: 800, italic: true }
+                ]
+              },
+              {
+                family: 'Raleway',
+                styles: [
+                  { weight: 400 },
+                  { weight: 500 },
+                  { weight: 400, italic: true }
+                ]
+              }
+            ]}
+          />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

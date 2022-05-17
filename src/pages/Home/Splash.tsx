@@ -1,13 +1,11 @@
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 import { Button } from 'src/components/Button'
-import { Ukraine } from './Ukraine'
 import { Heading, Text } from 'src/components/Typography'
 import { Rhytm } from 'src/components/Rhytm'
-import { Content } from 'src/components/Content'
-import { Col, Row } from 'src/components/Grid'
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
+import { Stroke } from 'src/components/Stroke/Stroke'
 
 const Container = styled.div`
   position: relative;
@@ -22,8 +20,32 @@ const Container = styled.div`
   padding-top: calc(${theme.sizes.topHeader} + ${theme.sizes.header});
 `
 
+const Inner = styled.div`
+  max-width: ${theme.layout.width.wide};
+  padding: 0 ${theme.layout.spacing.m};
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+`
+
+const Left = styled.div`
+  box-sizing: border-box;
+  width: 50%;
+  padding-left: ${theme.layout.spacing.m};
+  padding-right: ${theme.layout.spacing.s};
+`
+
+const Right = styled.div`
+  width: 50%;
+`
+
 const Title = styled(Heading)`
   line-height: 1;
+`
+
+const Image = styled.img`
+  display: block;
+  width: 100%;
 `
 
 type Props = {
@@ -37,12 +59,13 @@ export const Splash = ({ title, text, image }: Props) => {
 
   return (
     <Container>
-      <Content size='wide'>
-        <Row align='center'>
-          <Col size={6}>
+      <Inner>
+        <Left>
             <Rhytm>
               <Title typography={theme.typography.head[2.5].italic}>
-                {title}
+                <Stroke>
+                  {title}
+                </Stroke>
               </Title>
               <Text>
                 {text}
@@ -53,12 +76,11 @@ export const Splash = ({ title, text, image }: Props) => {
                 </Button>
               </Link>
             </Rhytm>
-          </Col>
-          <Col size={6}>
-            <Ukraine src={image} alt={title} />
-          </Col>
-        </Row>
-      </Content>
+        </Left>
+        <Right>
+        <Image src={image} alt={title} />
+        </Right>
+      </Inner>
     </Container>
   )
 }

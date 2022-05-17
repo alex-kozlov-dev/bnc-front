@@ -2,7 +2,7 @@ import { PostFull, PostShort } from 'src/api/types'
 import { Col, Row } from 'src/components/Grid'
 import { PageTitle } from 'src/components/PageTitle'
 import { Rhytm } from 'src/components/Rhytm'
-import { Section } from 'src/components/Section'
+import { DeprecatedSection } from 'src/components/Section'
 import { Wysiwyg } from 'src/components/Wysiwyg'
 import { OtherProject } from './OtherProject'
 import { PostImages } from './PostImages'
@@ -16,7 +16,7 @@ export const Project = ({ post, otherPosts }: ProjectProps) => {
   return (
     <>
       <PageTitle title={post.title} />
-      <Section title={post.title} size="wide">
+      <DeprecatedSection title={post.title} size="wide">
         <Row gap="xl">
           <Col size={9}>
             <Rhytm>
@@ -32,7 +32,7 @@ export const Project = ({ post, otherPosts }: ProjectProps) => {
             </Rhytm>
           </Col>
         </Row>
-      </Section>
+      </DeprecatedSection>
     </>
   )
 }

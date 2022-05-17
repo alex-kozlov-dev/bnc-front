@@ -3,7 +3,7 @@ import { File } from 'src/api/types'
 import { Icon } from 'src/components/Icon'
 import { PageTitle } from 'src/components/PageTitle'
 import { Rhytm } from 'src/components/Rhytm'
-import { Section } from 'src/components/Section'
+import { DeprecatedSection } from 'src/components/Section'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
 
@@ -36,7 +36,7 @@ export const DocumentsPage = ({ files }: DocumentsPageProps) => {
   return (
     <>
       <PageTitle title={t('Documents')} />
-      <Section size="narrow" title={t('Documents')}>
+      <DeprecatedSection size="narrow" title={t('Documents')}>
         <Rhytm>
           {files.map(file => (
             <FileContainer key={file.id} href={file.src} target="_blank" download>
@@ -44,7 +44,7 @@ export const DocumentsPage = ({ files }: DocumentsPageProps) => {
             </FileContainer>
           ))}
         </Rhytm>
-      </Section>
+      </DeprecatedSection>
     </>
   )
 }

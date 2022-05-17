@@ -6,7 +6,7 @@ import { Button } from 'src/components/Button'
 import { Col, Row } from 'src/components/Grid'
 import { PageTitle } from 'src/components/PageTitle'
 import { Rhytm } from 'src/components/Rhytm'
-import { Section } from 'src/components/Section'
+import { DeprecatedSection } from 'src/components/Section'
 import { Wysiwyg } from 'src/components/Wysiwyg'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
@@ -82,7 +82,7 @@ export const ContactsPage = ({ meta }: ContactsPageProps) => {
   return (
     <>
       <PageTitle title={t('Contacts')} />
-      <Section size="wide" title={t('Contacts')}>
+      <DeprecatedSection size="wide" title={t('Contacts')}>
         <Row>
           <Col size={6}>
             <Form action='/api/feedback' method='POST'>
@@ -108,7 +108,7 @@ export const ContactsPage = ({ meta }: ContactsPageProps) => {
             </Rhytm>
           </Col>
         </Row>
-      </Section>
+      </DeprecatedSection>
     </>
   )
 }

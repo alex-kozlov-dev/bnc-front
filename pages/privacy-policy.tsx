@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { createApi } from 'src/api'
 import { withLayout } from 'src/components/PageLayout'
 import { PageTitle } from 'src/components/PageTitle'
-import { Section } from 'src/components/Section'
+import { DeprecatedSection } from 'src/components/Section'
 import { Wysiwyg } from 'src/components/Wysiwyg'
 import { getSharedData, GetStaticProps } from 'src/nextHelpers'
 
@@ -28,9 +28,9 @@ const PrivacyPolicy = ({ text }: Props) => {
   return (
     <>
       <PageTitle title={t('Privacy Policy')} />
-      <Section size="narrow" title={t('Privacy Policy')}>
+      <DeprecatedSection size="narrow" title={t('Privacy Policy')}>
         <Wysiwyg content={text} />
-      </Section>
+      </DeprecatedSection>
     </>
   )
 }
