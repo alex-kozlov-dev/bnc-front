@@ -102,7 +102,9 @@ export const ContactsPage = ({ meta }: ContactsPageProps) => {
           </Col>
           <Col size={6}>
             <Rhytm>
-              <Anchor href={`tel:${sanitazeTel(meta.phone_number)}`}>{meta.phone_number}</Anchor>
+              {meta.phone_numbers.map(({ id, phone_number }) => (
+                <Anchor key={id} href={`tel:${sanitazeTel(phone_number)}`}>{phone_number}</Anchor>
+              ))}
               <Anchor href={`mailto:${meta.email}`}>{meta.email}</Anchor>
               <Wysiwyg content={meta.address} />
             </Rhytm>

@@ -45,6 +45,8 @@ const Container = styled.div`
 
 type Props = SharedData
 
+const sanitazeTel = (str: string) => str.replace(/[^\d+]/g, '')
+
 export const ComingSoon = ({ meta }: Props) => {
   const { t } = useTranslation()
 
@@ -61,11 +63,13 @@ export const ComingSoon = ({ meta }: Props) => {
             {meta.email}
           </Link>
         </LinksItem>
-        <LinksItem>
-          <Link href={`tel:${meta.phone_number}`}>
-            {meta.phone_number}
-          </Link>
-        </LinksItem>
+        {meta.phone_numbers.map(({ id, phone_number }) => (
+          <LinksItem key={id}>
+            <Link href={`tel:${sanitazeTel(phone_number)}`}>
+              {phone_number}
+            </Link>
+          </LinksItem>
+        ))}
       </LinksList>
       <Wysiwyg content={meta.address} />
     </Container>

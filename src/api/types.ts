@@ -41,7 +41,7 @@ export type Meta = {
   description: string;
   address: string;
   email: string;
-  phone_number: string;
+  phone_numbers: { id: number; phone_number: string }[];
   logo: string;
   logo_inverted: string;
   social_links: SocialLink[];
