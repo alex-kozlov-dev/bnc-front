@@ -14,6 +14,7 @@ export const getStaticProps: GetStaticProps<DonatePageProps> = async (ctx) => {
   return {
     props: {
       ...shared,
+      liqpayEnabled: !!process.env.LIQPAY_PUBLIC_KEY && !!process.env.LIQPAY_PRIVATE_KEY,
       payment
     }
   }

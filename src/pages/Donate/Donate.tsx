@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import { Payment } from 'src/api/types'
-import { Button } from 'src/components/Button'
 import { Col, Row } from 'src/components/Grid'
 import { PageTitle } from 'src/components/PageTitle'
 import { alternateVariant, DeprecatedSection } from 'src/components/Section'
 import { Wysiwyg } from 'src/components/Wysiwyg'
 import styled from 'styled-components'
 import { CryptoWallet } from './CryptoWallet'
+import { LiqpayButton } from './LiqpayButton'
 
 const LiqpaySection = styled(DeprecatedSection)`
   text-align: center;
@@ -14,21 +14,20 @@ const LiqpaySection = styled(DeprecatedSection)`
 
 export type DonatePageProps = {
   payment: Payment;
+  liqpayEnabled: boolean;
 }
 
-export const DonatePage = ({ payment }: DonatePageProps) => {
+export const DonatePage = ({ payment, liqpayEnabled }: DonatePageProps) => {
   const { t } = useTranslation()
 
-  const liqpayCorrection = +!!payment.liqpay_link
+  const liqpayCorrection = +!!liqpayEnabled
 
   return (
     <>
       <PageTitle title={t('Donate')} />
-      {payment.liqpay_link && (
+      {liqpayEnabled && (
         <LiqpaySection title={t('Visa/Mastercard')}>
-          <Button as="a" target="_blank" href={payment.liqpay_link}>
-            {t('Donate with your card')}
-          </Button>
+          <LiqpayButton />
         </LiqpaySection>
       )}
       {payment.payment_details.map(({ id, title, text }, i) => (

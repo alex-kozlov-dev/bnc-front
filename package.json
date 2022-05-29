@@ -22,15 +22,17 @@
     "react-i18next": "^11.16.2",
     "react-image-gallery": "^1.2.7",
     "react-qr-code": "^2.0.5",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/react-copy-to-clipboard": "^5.0.2",
-    "@types/react-image-gallery": "^1.0.5",
     "@types/lodash": "^4.14.180",
     "@types/node": "17.0.21",
     "@types/react": "17.0.41",
+    "@types/react-copy-to-clipboard": "^5.0.2",
+    "@types/react-image-gallery": "^1.0.5",
     "@types/styled-components": "^5.1.24",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     "eslint": "^7.32.0",
