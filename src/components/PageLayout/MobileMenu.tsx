@@ -11,6 +11,11 @@ export const MobileMenuButton = styled.button.attrs({
   children: <Icon icon="fa-bars" size="2x" />
 })`
   ${theme.reset.button}
+
+  display: none;
+  @media (max-width: ${theme.responsive.mobile}) {
+    display: block;
+  }
 `
 
 const CloseButton = styled.button.attrs({

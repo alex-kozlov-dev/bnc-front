@@ -59,8 +59,10 @@ const MenuLink = styled.a`
 `
 
 const DesktopOnlyRow = styled(Row)`
-  @media (max-width: ${theme.responsive.mobile}) {
-    display: none;
+  && {
+    @media (max-width: ${theme.responsive.mobile}) {
+      display: none;
+    }
   }
 `
 

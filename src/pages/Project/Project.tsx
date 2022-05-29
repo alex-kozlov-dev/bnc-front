@@ -18,13 +18,13 @@ export const Project = ({ post, otherPosts }: ProjectProps) => {
       <PageTitle title={post.title} />
       <DeprecatedSection title={post.title} size="wide">
         <Row gap="xl">
-          <Col size={9}>
+          <Col size={{ desktop: 9, mobile: 12 }}>
             <Rhytm>
               <PostImages post={post} />
               <Wysiwyg content={post.text} />
             </Rhytm>
           </Col>
-          <Col size={3}>
+          <Col size={3} hide={{ mobile: true }}>
             <Rhytm>
               {otherPosts.map((project, i) => (
                 <OtherProject key={i} {...project} />

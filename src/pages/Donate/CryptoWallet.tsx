@@ -9,6 +9,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import QRCode from 'react-qr-code'
 
 const QrOuter = styled.div`
+  text-align: center;
   position: relative;
   cursor: pointer;
 `
@@ -32,13 +33,14 @@ const CopiedOverlay = styled.div<{ visible: boolean }>`
 
 const Title = styled(Text).attrs({
   align: 'center',
-  typography: theme.typography.head[1.5].regular
+  typography: theme.typography.text[1.5].bold
 })`
   text-transform: capitalize;
 `
 
 const Wallet = styled(Text)`
   line-break: anywhere;
+  text-align: center;
 `
 
 // eslint-disable-next-line
@@ -84,7 +86,7 @@ export const CryptoWallet = ({ type, wallet }: Props) => {
         <QrOuter>
           <QRCode value={link} size={220} bgColor="transparent" fgColor={theme.colors.gray[8]} />
           <CopiedOverlay visible={copied}>
-            <Text typography={theme.typography.head['1.5'].regular}>{t('Copied')}</Text>
+            <Text typography={theme.typography.text['1.5'].bold}>{t('Copied')}</Text>
           </CopiedOverlay>
         </QrOuter>
         <Wallet>{wallet}</Wallet>

@@ -49,11 +49,11 @@ export const ProjectsList = ({ items }: ProjectListProps) => {
       <DeprecatedSection title={t('Our work')} size="wide">
         <Row gap='xxl'>
           {items.map(({ title, main_image_thumb, slug }, i) => (
-            <Col size={4} key={i}>
+            <Col size={{ desktop: 4, tablet: 6, mobile: 12 }} key={i}>
               <Link href={`/our-work/${slug}`} passHref>
                 <ItemLink>
                   <Img src={main_image_thumb} alt={title} aspectRatio={16 / 9}/>
-                  <Text typography={theme.typography.head['1.5'].regular}>{title}</Text>
+                  <Text typography={theme.typography.text['1.5'].bold}>{title}</Text>
                 </ItemLink>
               </Link>
             </Col>

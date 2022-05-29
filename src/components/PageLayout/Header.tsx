@@ -17,6 +17,10 @@ const LogoLink = styled.a`
   top: -8px;
   height: 39px;
   margin-right: auto;
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    top: 0;
+  }
 `
 
 const Container = styled.header<{ transparent: boolean }>`

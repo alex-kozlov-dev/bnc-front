@@ -84,7 +84,7 @@ export const ContactsPage = ({ meta }: ContactsPageProps) => {
       <PageTitle title={t('Contacts')} />
       <DeprecatedSection size="wide" title={t('Contacts')}>
         <Row>
-          <Col size={6}>
+          <Col size={{ desktop: 6, mobile: 12 }}>
             <Form action='/api/feedback' method='POST'>
               <label htmlFor='email'>Email</label>
               <Input name='email' type='email' placeholder="email@address.com" required />
@@ -100,11 +100,13 @@ export const ContactsPage = ({ meta }: ContactsPageProps) => {
               )}
             </Form>
           </Col>
-          <Col size={6}>
+          <Col size={{ desktop: 6, mobile: 12 }}>
             <Rhytm>
-              {meta.phone_numbers.map(({ id, phone_number }) => (
-                <Anchor key={id} href={`tel:${sanitazeTel(phone_number)}`}>{phone_number}</Anchor>
-              ))}
+              <Rhytm margin={0.5}>
+                {meta.phone_numbers.map(({ id, phone_number }) => (
+                  <Anchor key={id} href={`tel:${sanitazeTel(phone_number)}`}>{phone_number}</Anchor>
+                ))}
+              </Rhytm>
               <Anchor href={`mailto:${meta.email}`}>{meta.email}</Anchor>
               <Wysiwyg content={meta.address} />
             </Rhytm>

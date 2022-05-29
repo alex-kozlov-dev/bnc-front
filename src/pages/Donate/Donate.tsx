@@ -38,9 +38,9 @@ export const DonatePage = ({ payment }: DonatePageProps) => {
       ))}
       {!!payment.crypto_payment_details.length && (
         <DeprecatedSection size='wide' title={t('Crypto')} variant={alternateVariant(liqpayCorrection + payment.payment_details.length)}>
-          <Row align="center">
+          <Row align="center" justify="center">
             {payment.crypto_payment_details.map(({ id, crypto_type, wallet }) => (
-              <Col size={3} key={id}>
+              <Col size={{ desktop: 3, tablet: 4, mobile: 12 }} key={id}>
                 <CryptoWallet type={crypto_type} wallet={wallet} />
               </Col>
             ))}
