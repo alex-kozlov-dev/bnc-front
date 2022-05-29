@@ -11,11 +11,17 @@ const Container = styled(Section)`
   flex-direction: column;
   align-items: center;
   gap: ${theme.layout.spacing.xs};
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    padding: ${theme.layout.spacing.xs};
+  }
 `
 
 const Items = styled.div`
   display: flex;
   gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
 `
 
 const Item = styled.img`
@@ -35,6 +41,11 @@ const Item = styled.img`
   &:hover {
     ${theme.shadow[1]}
     filter: grayscale(0);
+  }
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    width: 120px;
+    height: 72px;
   }
 `
 

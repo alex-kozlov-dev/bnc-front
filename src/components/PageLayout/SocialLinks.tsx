@@ -1,3 +1,4 @@
+import { ComponentProps } from 'react'
 import { SocialLink } from 'src/api/types'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
@@ -25,14 +26,15 @@ const LinkAnchor = styled.a<{ black?: boolean }>`
 type Props = {
   links: SocialLink[];
   black?: boolean;
+  size?: ComponentProps<typeof Icon>['size'];
 }
 
-export const SocialLinks = ({ links, black }: Props) => {
+export const SocialLinks = ({ links, black, size }: Props) => {
   return (
     <Container>
       {links.map(({ social_type, link }, i) => (
         <LinkAnchor black={black} href={link} target="_blank" key={i}>
-          <Icon prefix="fab" icon={`fa-${social_type}`} />
+          <Icon prefix="fab" icon={`fa-${social_type}`} size={size} />
         </LinkAnchor>
       ))}
     </Container>

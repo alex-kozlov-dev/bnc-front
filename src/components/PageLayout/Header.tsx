@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
 import { Meta } from 'src/api/types'
 import { useNavigationLinks } from './useNavigationLinks'
+import { MobileMenu, MobileMenuButton } from './MobileMenu'
 
 const Logo = styled.img`
   height: 100%;
@@ -32,6 +33,18 @@ const Container = styled.header<{ transparent: boolean }>`
   transition: background 0.2s, box-shadow 0.2s;
   background: ${({ transparent }) => transparent ? 'transparent' : 'white'};
   ${({ transparent }) => transparent ? theme.shadow[0] : theme.shadow[1]}
+`
+
+const Menu = styled.nav`
+  @media (max-width: ${theme.responsive.mobile}) {
+    display: none;
+  }
+`
+
+const DonateButton = styled(Button)`
+  @media (max-width: ${theme.responsive.mobile}) {
+    display: none;
+  }
 `
 
 const MenuList = styled.ul`
@@ -88,36 +101,41 @@ type Props = {
 }
 
 export const Header = ({ meta }: Props) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const scrolledToTop = useScrolledToTop()
   const { t } = useTranslation()
 
   const links = useNavigationLinks(meta, false)
 
   return (
-    <Container transparent={scrolledToTop}>
-      <Link href="/" passHref>
-        <LogoLink>
-          <Logo src={meta.logo} />
-        </LogoLink>
-      </Link>
-      <nav>
-        <MenuList>
-          {links.map(({ title, href }, i) => (
-            <MenuItem key={i}>
-              <Link href={href} passHref>
-                <MenuLink white={scrolledToTop}>
-                  {title}
-                </MenuLink>
-              </Link>
-            </MenuItem>
-          ))}
-        </MenuList>
-      </nav>
-      <Link href="/donate" passHref>
-        <Button as="a">
-          {t('Donate now')}
-        </Button>
-      </Link>
-    </Container>
+    <>
+      <Container transparent={scrolledToTop}>
+        <Link href="/" passHref>
+          <LogoLink>
+            <Logo src={meta.logo} />
+          </LogoLink>
+        </Link>
+        <Menu>
+          <MenuList>
+            {links.map(({ title, href }, i) => (
+              <MenuItem key={i}>
+                <Link href={href} passHref>
+                  <MenuLink white={scrolledToTop}>
+                    {title}
+                  </MenuLink>
+                </Link>
+              </MenuItem>
+            ))}
+          </MenuList>
+        </Menu>
+        <Link href="/donate" passHref>
+          <DonateButton as="a">
+            {t('Donate now')}
+          </DonateButton>
+        </Link>
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)} />
+      </Container>
+      <MobileMenu meta={meta} open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+    </>
   )
 }

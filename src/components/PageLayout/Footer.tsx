@@ -58,6 +58,12 @@ const MenuLink = styled.a`
   }
 `
 
+const DesktopOnlyRow = styled(Row)`
+  @media (max-width: ${theme.responsive.mobile}) {
+    display: none;
+  }
+`
+
 type Props = {
   meta: Meta;
 }
@@ -68,7 +74,7 @@ export const Footer = ({ meta }: Props) => {
     <Container>
       <Content>
         <Rhytm margin={0.8}>
-          <Row justify="space-between">
+          <DesktopOnlyRow justify="space-between">
             <Col size={4}>
               <Rhytm margin={0.8}>
                 <Link href="/" passHref>
@@ -96,7 +102,7 @@ export const Footer = ({ meta }: Props) => {
                 </MenuList>
               </Nav>
             </Col>
-          </Row>
+          </DesktopOnlyRow>
           <SocialLinks links={meta.social_links} />
           <Text typography={theme.typography.text['0.8'].regular} align="center">
             {meta.copyright}

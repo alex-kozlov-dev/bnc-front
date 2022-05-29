@@ -7,6 +7,7 @@ import strokeBlue from './stroke-blue.svg'
 const Span = styled.span<{ blue: boolean }>`
   position: relative;
   display: inline-block;
+  white-space: nowrap;
   &:before {
     display: block;
     content: '';

@@ -11,6 +11,10 @@ const Container = styled(Section)`
   flex-direction: column;
   align-items: center;
   gap: ${theme.layout.spacing.xs};
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    padding: ${theme.layout.spacing.xs};
+  }
 `
 
 const Items = styled.div`
@@ -26,6 +30,10 @@ const Item = styled.div`
   border: 1px solid ${theme.colors.gray[8]};
   padding: 8px 16px;
   border-radius: 19px;
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    ${theme.typography.text['0.8'].regular}
+  }
 `
 
 type Props = {

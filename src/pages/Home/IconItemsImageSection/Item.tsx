@@ -7,6 +7,18 @@ import styled from 'styled-components'
 const Container = styled.div`
   display: flex;
   gap: 16px;
+  @media (max-width: ${theme.responsive.mobile}) {
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+const Header = styled(Text).attrs({
+  typography: theme.typography.text['1.5'].bold
+})`
+  @media (max-width: ${theme.responsive.mobile}) {
+    text-align: center;
+  }
 `
 
 const Icon = styled.img`
@@ -26,9 +38,9 @@ export const Item = ({ icon, title, text }: Props) => {
     <Container>
       <Icon src={icon}/>
       <Rhytm margin={0.5}>
-        <Text typography={theme.typography.text['1.5'].bold}>
+        <Header>
           {title}
-        </Text>
+        </Header>
         <Text>
           <Wysiwyg content={text}/>
         </Text>

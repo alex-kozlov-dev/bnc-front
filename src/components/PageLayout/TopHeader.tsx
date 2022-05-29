@@ -13,6 +13,10 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    display: none;
+  }
 `
 
 const LocaleLink = styled(LocaleSwitcher)`

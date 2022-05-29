@@ -4,6 +4,10 @@ const fonts = {
 }
 
 export const theme = {
+  responsive: {
+    tablet: '1024px',
+    mobile: '728px'
+  },
   colors: {
     white: '#ffffff',
     gray: {
@@ -170,6 +174,7 @@ export const theme = {
       outline: none;
       background: 0;
       cursor: pointer;
+      color: inherit;
     `,
     ul: `
       margin: 0;

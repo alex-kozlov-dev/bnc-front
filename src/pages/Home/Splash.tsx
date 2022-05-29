@@ -26,21 +26,36 @@ const Inner = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    padding: 0 ${theme.spacing.xs};
+  }
 `
 
 const Left = styled.div`
-  box-sizing: border-box;
-  width: 50%;
+  flex: 1;
   padding-left: ${theme.layout.spacing.m};
   padding-right: ${theme.layout.spacing.s};
+  @media (max-width: ${theme.responsive.tablet}) {
+    padding: 0 ${theme.spacing.m};
+  }
 `
 
 const Right = styled.div`
-  width: 50%;
+  flex: 1;
+  @media (max-width: ${theme.responsive.tablet}) {
+    display: none;
+  }
 `
 
-const Title = styled(Heading)`
+const Title = styled(Heading).attrs({
+  typography: theme.typography.head[2.5].italic
+})`
   line-height: 1;
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    ${theme.typography.head[2].italic}
+  }
 `
 
 const Image = styled.img`

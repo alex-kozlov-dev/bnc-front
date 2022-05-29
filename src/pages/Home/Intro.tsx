@@ -1,4 +1,5 @@
 import { Section } from 'src/components/Section'
+import { TextSection } from 'src/components/TextSection'
 import { Wysiwyg } from 'src/components/Wysiwyg'
 import { theme } from 'src/theme'
 import styled from 'styled-components'
@@ -20,6 +21,10 @@ const Left = styled.div`
 
   @media (max-width: ${theme.responsive.tablet}) {
     width: 100%;
+  }
+
+  @media (max-width: ${theme.responsive.mobile}) {
+    padding: 48px;
   }
 `
 
@@ -45,20 +50,40 @@ const Image = styled.img`
   }
 `
 
+const MobileText = styled(Wysiwyg)`
+  display: none;
+  padding-top: 1em;
+  @media (max-width: ${theme.responsive.tablet}) {
+    display: unset;
+  }
+`
+
+const DesktopTextSection = styled(TextSection)`
+  @media (max-width: ${theme.responsive.tablet}) {
+    display: none;
+  }
+`
+
 type Props = {
   text: string;
   image: string;
+  text2: string;
 }
 
-export const TextImageSection = ({ text, image }: Props) => {
+export const Intro = ({ text, image, text2 }: Props) => {
   return (
-    <Container variant="gray">
-      <Left>
-        <Wysiwyg content={text} />
-      </Left>
-      <Right>
-        <Image src={image} />
-      </Right>
-    </Container>
+    <>
+      <Container variant="gray">
+        <Left>
+          <Wysiwyg content={text} />
+          <br/>
+          <MobileText content={text2} />
+        </Left>
+        <Right>
+          <Image src={image} />
+        </Right>
+      </Container>
+      <DesktopTextSection text={text2} />
+    </>
   )
 }

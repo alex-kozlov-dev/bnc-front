@@ -12,6 +12,10 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: ${theme.colors.gray[8]};
   }
+
+  i {
+    color: inherit;
+  }
 `
 
 const Container = styled.div`
@@ -19,6 +23,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
+  overflow-x: hidden;
 `
 
 const Main = styled.main`
